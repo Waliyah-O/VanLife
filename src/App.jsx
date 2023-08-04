@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import HomePage from "./pages/HomePage";
 import Vans from "./pages/Vans";
 import VanDetail from "./pages/VanDetail";
+import ProductDetail from "./pages/ProductDetail";
 import "./server";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/vans" element={<Vans />} />
           <Route path="/vans/:id" element={<VanDetail />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
     </>
