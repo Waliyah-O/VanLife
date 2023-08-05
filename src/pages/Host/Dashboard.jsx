@@ -1,3 +1,4 @@
+
 const HostDashboard = () => {
   return (
     <>
@@ -6,4 +7,4 @@ const HostDashboard = () => {
   );
 };
 
-export default HostDashboard
+export default HostDashboard;
