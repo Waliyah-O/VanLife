@@ -1,0 +1,1 @@
+a route/url is a portion of our route path that is a placeholder for what will eventually be the actual segment in the url of the page.

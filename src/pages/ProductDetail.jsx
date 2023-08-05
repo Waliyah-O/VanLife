@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState([]);
-  const params = useParams();
-  console.log(params);
+  const { productId } = useParams();
 
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data.vans))
-      .catch((error) => console.log(error));
-  }, [params.id]);
-
-  return <div>ProductDetail</div>;
+  return (
+    <div>
+      <h1>product id is {productId}</h1>
+    </div>
+  );
 };
 
 export default ProductDetail;

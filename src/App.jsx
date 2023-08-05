@@ -1,31 +1,35 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// styles
 import "./App.css";
+
+// components
 import AboutPage from "./pages/AboutPage";
 import HomePage from "./pages/HomePage";
-import Vans from "./pages/Vans";
-import VanDetail from "./pages/VanDetail";
-import ProductDetail from "./pages/ProductDetail";
+import Vans from "./pages/Vans/Vans";
+import VanDetail from "./pages/Vans/VanDetail";
+
+// server
 import "./server";
+import Layout from "./components/Layout";
+import HostDashboard from "./pages/Host/Dashboard";
+import Income from "./pages/Host/Income";
+import Reviews from "./pages/Host/Reviews";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <header>
-          <Link className="site-logo" to="/">
-            #VAN LIFE
-          </Link>
-          <nav>
-            <Link to="/about">About page</Link>
-            <Link to="/vans">Vans</Link>
-          </nav>
-        </header>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/vans" element={<Vans />} />
-          <Route path="/vans/:id" element={<VanDetail />} />
-          <Route path="/products/:productId" element={<ProductDetail />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/vans" element={<Vans />} />
+            <Route path="/vans/:id" element={<VanDetail />} />
+            <Route path="/host" element={<HostDashboard />} />
+            <Route path="/host/income" element={<Income />} />
+            <Route path="/host/reviews" element={<Reviews />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
