@@ -1,11 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  // const activeStyle = {
-  //   fontWeight: "bold",
-  //   textDecoration: "underline",
-  //   color: "#161616",
-  // };
+  
   return (
     <div>
       <header>

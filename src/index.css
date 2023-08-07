@@ -45,11 +45,11 @@ header .site-logo {
   font-size: 25px;
 }
 
-a.active-link{
+a.active-link {
   font-weight: bold;
   text-decoration: underline;
-  /* color: #161616; */
-  color: red;
+  color: #161616;
+  font-weight: 3em;
 }
 
 header a {
