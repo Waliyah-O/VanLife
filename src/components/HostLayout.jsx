@@ -29,6 +29,18 @@ const HostLayout = () => {
         >
           Reviews
         </NavLink>
+        <NavLink
+          to="vans"
+          style={({ isActive }) => (isActive ? activeStyle : null)}
+        >
+          Vans
+        </NavLink>
+        <NavLink
+          to="details"
+          style={({ isActive }) => (isActive ? activeStyle : null)}
+        >
+          Van details
+        </NavLink>
       </nav>
       <Outlet />
     </>
