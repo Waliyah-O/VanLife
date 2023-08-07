@@ -13,12 +13,14 @@ const Header = () => {
           #VANLIFE
         </Link>
         <nav>
+          <NavLink></NavLink>
           <NavLink
             to="/host"
             className={({ isActive }) => (isActive ? "active-link" : null)}
           >
             Host
           </NavLink>
+          <NavLink></NavLink>
           <NavLink
             to="/about"
             className={({ isActive }) => (isActive ? "active-link" : null)}
