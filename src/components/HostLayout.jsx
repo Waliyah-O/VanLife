@@ -24,22 +24,16 @@ const HostLayout = () => {
           Income
         </NavLink>
         <NavLink
-          to="reviews"
-          style={({ isActive }) => (isActive ? activeStyle : null)}
-        >
-          Reviews
-        </NavLink>
-        <NavLink
           to="vans"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
           Vans
         </NavLink>
         <NavLink
-          to="details"
+          to="reviews"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
-          Van details
+          Reviews
         </NavLink>
       </nav>
       <Outlet />
