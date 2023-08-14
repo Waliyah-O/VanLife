@@ -24,5 +24,11 @@ We use it anytime we have a parent Route that's wrapping children routes. It ren
 A layout route will use an outlet component. The outlet component is used anytime we have a parent route that's wrapping children routes. The outlet is a placeholder that represents the place in your parent route where the child routes will render its content 
 
 
+/************ INDEX ROUTE *************/
 what's an index route? 
 It's the 'default route' we want to render when the path of the parent route matches. It gives us a chance to render an element inside the parent's <Outlet/> at the same path as the parent route/
+
+
+
+/********** RELATIVE ROUTES *********/
+React router incorporated unix change dir cmd cd .. takes you to the parent folder, cd . leaves you on the current folder. "." leaves you on the current route, ".." takes you to the parent route

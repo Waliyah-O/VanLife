@@ -11,7 +11,7 @@ const HostLayout = () => {
     <>
       <nav className="host-nav">
         <NavLink
-          to="/host"
+          to="." //react router incorporated unix change dir cmd cd .. takes you to the parent folder, cd . leaves you on the current folder. "." leaves you on the current route, ".." takes you to the parent route
           end
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >

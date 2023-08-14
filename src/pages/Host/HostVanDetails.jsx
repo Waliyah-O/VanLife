@@ -17,15 +17,20 @@ const HostVanDetails = () => {
   }
 
   return (
-    <div>
-      <h1>Host Van Details</h1>
-      <div>
-        <img src={currentVan.imageUrl} alt="" />
-        <h2>{currentVan.name}</h2>
-        <p>${currentVan.price}/day</p>
-        <p>{currentVan.type}</p>
+    <section>
+      <div className="host-van-detail-layout-container">
+        <div className="host-van-detail">
+          <img src={currentVan.imageUrl} alt="" />
+          <div className="host-van-detail-info-text">
+            <i className={`van-type van-type-${currentVan.type}`}>
+              {currentVan.type}
+            </i>
+            <h2>{currentVan.name}</h2>
+            <h4>${currentVan.price}/day</h4>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
