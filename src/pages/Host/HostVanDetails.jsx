@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const HostVanDetails = () => {
   const [currentVan, setCurrentVan] = useState(null);
@@ -18,6 +18,12 @@ const HostVanDetails = () => {
 
   return (
     <section>
+      <Link 
+        to=".." 
+        relative="path" 
+        className="back-button">
+          <span>Back to all vans</span>
+      </Link>
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
           <img src={currentVan.imageUrl} alt="" />
