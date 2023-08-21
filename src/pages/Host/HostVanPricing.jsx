@@ -2,7 +2,7 @@
 
 const HostVanPricing = () => {
   return (
-	<div>HostVanPricing</div>
+	<div>Host Van Pricing</div>
   )
 }
 

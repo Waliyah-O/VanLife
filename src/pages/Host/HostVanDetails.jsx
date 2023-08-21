@@ -33,10 +33,11 @@ const HostVanDetails = () => {
             <h4>${currentVan.price}/day</h4>
           </div>
         </div>
-        <div>
+        <nav className="host-van-detail-nav">
           <NavLink
             style={({ isActive }) => (isActive ? activeStyle : null)}
             to="."
+            end
           >
             Details
           </NavLink>
@@ -52,8 +53,8 @@ const HostVanDetails = () => {
           >
             Photos
           </NavLink>
-          <Outlet />
-        </div>
+        </nav>
+        <Outlet />
       </div>
     </section>
   );
