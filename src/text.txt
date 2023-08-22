@@ -32,3 +32,10 @@ It's the 'default route' we want to render when the path of the parent route mat
 
 /********** RELATIVE ROUTES *********/
 React router incorporated unix change dir cmd cd .. takes you to the parent folder, cd . leaves you on the current folder. "." leaves you on the current route, ".." takes you to the parent route
+
+
+Query Parameters
+	1. Represents a change in the UI: 
+		a. sorting, filtering, pagination
+	2. used as a "single source of truth" for certain application state.
+		a. should a user be able to revisit or share this page just like it is? if "yes", then you might consider RAISING THAT STATE UP to the url in a query parameter
