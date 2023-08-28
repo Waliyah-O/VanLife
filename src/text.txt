@@ -39,3 +39,8 @@ Query Parameters
 		a. sorting, filtering, pagination
 	2. used as a "single source of truth" for certain application state.
 		a. should a user be able to revisit or share this page just like it is? if "yes", then you might consider RAISING THAT STATE UP to the url in a query parameter
+
+		hostIDs
+		123
+		456
+		789
