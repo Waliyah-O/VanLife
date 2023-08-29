@@ -487,6 +487,9 @@ i[class*="van-type-"] {
   border-radius: 5px;
 }
 
+.van-image{
+}
+
 .not-found-container {
   padding-inline: 26px;
 }

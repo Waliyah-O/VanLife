@@ -32,8 +32,8 @@ const Vans = () => {
 
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
-      <Link to={`/vans/${van.id}`}>
-        <img src={van.imageUrl} alt="" />
+      <Link to={van.id}>
+        <img className="van-image " src={van.imageUrl} alt="" />
         <div className="van-info">
           <h3>{van.name}</h3>
           <p>
@@ -51,29 +51,43 @@ const Vans = () => {
       <h1>Explore our van options</h1>
       <div className="van-list-filter-buttons">
         <button
-          className="van-type simple"
+          className={`${
+            typeFilter === "simple"
+              ? "selected"
+              : ""
+          }`}
           onClick={() => handleFilterChange("type", "simple")}
         >
           Simple
         </button>
         <button
-          className="van-type luxury"
+          className={`${
+            typeFilter === "luxury"
+              ? "selected"
+              : ""
+          }`}
           onClick={() => handleFilterChange("type", "luxury")}
         >
           luxury
         </button>
         <button
-          className="van-type rugged"
+          className={`${
+            typeFilter === "rugged"
+              ? "selected"
+              : ""
+          }`}
           onClick={() => handleFilterChange("type", "rugged")}
         >
           rugged
         </button>
-        <button
-          className="van-type clear-filters"
-          onClick={() => handleFilterChange("type", null)}
-        >
-          clear
-        </button>
+        {typeFilter ? (
+          <button
+            className="van-type clear-filters"
+            onClick={() => handleFilterChange("type", null)}
+          >
+            clear filter
+          </button>
+        ) : null}
       </div>
       <div className="van-list">{vanElements}</div>
     </div>

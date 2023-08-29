@@ -44,3 +44,9 @@ Query Parameters
 		123
 		456
 		789
+
+
+ // to={`/host/vans/${van.id}`}
+		<Link to={`/vans/${van.id}`}>Destination</Link> or 
+		 <Link to={van.id}>
+		
