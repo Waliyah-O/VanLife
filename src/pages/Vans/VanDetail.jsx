@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const VanDetail = () => {
   const [van, setVan] = useState([]);
@@ -14,6 +14,9 @@ const VanDetail = () => {
 
   return (
     <div className="van-detail-container">
+      <Link to=".." relative="path" className="back-button">
+        <span> &larr; Back to all vans</span>
+      </Link>
       {van ? (
         <div className="van-detail">
           <img src={van.imageUrl} alt="" />

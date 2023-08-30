@@ -7,6 +7,7 @@ const Vans = () => {
 
   const typeFilter = searchParams.get("type");
   // console.log(typeFilter);
+  console.log(searchParams.toString());
 
   useEffect(() => {
     fetch("/api/vans")
@@ -32,7 +33,8 @@ const Vans = () => {
 
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
-      <Link to={van.id}>
+      {/* save search filters */}
+      <Link to={van.id} state={{ search: searchParams.toString() }}>
         <img className="van-image " src={van.imageUrl} alt="" />
         <div className="van-info">
           <h3>{van.name}</h3>
@@ -53,8 +55,8 @@ const Vans = () => {
         <button
           className={`${
             typeFilter === "simple"
-              ? "selected"
-              : ""
+              ? "van-type simple selected"
+              : "van-type simple"
           }`}
           onClick={() => handleFilterChange("type", "simple")}
         >
@@ -63,8 +65,8 @@ const Vans = () => {
         <button
           className={`${
             typeFilter === "luxury"
-              ? "selected"
-              : ""
+              ? "van-type luxury selected"
+              : "van-type luxury"
           }`}
           onClick={() => handleFilterChange("type", "luxury")}
         >
@@ -73,8 +75,8 @@ const Vans = () => {
         <button
           className={`${
             typeFilter === "rugged"
-              ? "selected"
-              : ""
+              ? "van-type rugged selected"
+              : "van-type rugged"
           }`}
           onClick={() => handleFilterChange("type", "rugged")}
         >

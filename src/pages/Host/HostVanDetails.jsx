@@ -20,7 +20,7 @@ const HostVanDetails = () => {
   return (
     <section>
       <Link to=".." relative="path" className="back-button">
-        <span>Back to all vans</span>
+        <span> &larr; Back to all vans</span>
       </Link>
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">

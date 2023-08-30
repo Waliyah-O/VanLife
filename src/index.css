@@ -220,10 +220,16 @@ footer {
 
 .van-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(30%, 1fr)); */
   justify-items: center;
   gap: 34px;
   margin-top: 57px;
+}
+
+.van-tile {
+  padding: 20px;
+  /* box-shadow: 3px 3px 12px 2px #4d4d4d; */
 }
 
 .van-tile a {
@@ -242,6 +248,7 @@ footer {
 }
 
 .van-type {
+  border: 2px solid red;
   height: 34px;
   padding: 6px 26px;
   font-style: normal;
@@ -487,7 +494,7 @@ i[class*="van-type-"] {
   border-radius: 5px;
 }
 
-.van-image{
+.van-image {
 }
 
 .not-found-container {
