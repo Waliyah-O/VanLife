@@ -1,12 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
 const Header = () => {
-  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openMenu = () => {
+    isOpen === true ? setIsOpen(false) : setIsOpen(true);
+  };
   return (
     <div>
       <header>
         <Link className="site-logo" to="/">
-          #VANLIFE
+          #RENT_A_RIG
         </Link>
         <nav>
           <NavLink
@@ -27,6 +33,15 @@ const Header = () => {
           >
             Vans
           </NavLink>
+          <NavLink
+            to="/trucks"
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Trucks
+          </NavLink>
+          {/* <div className="hamburger">
+            <RxHamburgerMenu onClick={openMenu} />
+          </div> */}
         </nav>
       </header>
     </div>

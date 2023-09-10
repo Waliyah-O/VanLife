@@ -78,6 +78,21 @@ nav {
   display: flex;
 }
 
+/* .hamburger {
+  visibility: hidden;
+  font-size: 2em;
+  margin-right: 1em;
+} */
+
+/* @media screen and (max-width: 500px) {
+  nav {
+    visibility: hidden;
+  }
+  .hamburger {
+    visibility: visible;
+  }
+} */
+
 main {
   margin-bottom: 84px;
 }
@@ -248,7 +263,6 @@ footer {
 }
 
 .van-type {
-  border: 2px solid red;
   height: 34px;
   padding: 6px 26px;
   font-style: normal;
@@ -259,6 +273,39 @@ footer {
   color: #4d4d4d;
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+.truck-type {
+  height: 34px;
+  padding: 6px 26px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffead0;
+  color: #d4d0d0;
+  /* color: #1c80b4; */
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.truck-type.light:hover,
+.truck-type.light.selected {
+  background-color: #e17654;
+}
+
+.truck-type.medium:hover,
+.truck-type.medium.selected {
+  background-color: #115e59;
+}
+
+.truck-type.heavy:hover,
+.truck-type.heavy.selected {
+  background-color: #161616;
+}
+
+
+
 
 .van-type:hover {
   color: #ffead0;

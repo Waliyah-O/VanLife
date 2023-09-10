@@ -8,7 +8,9 @@ import Layout from "./components/Layout";
 import HostLayout from "./components/HostLayout";
 
 // server
-import "./server";
+import './server/server';
+// import './server/truckServer'
+
 
 // pages
 import AboutPage from "./pages/AboutPage";
@@ -23,6 +25,8 @@ import HostVanDetails from "./pages/Host/HostVanDetails";
 import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import HostVanInfo from "./pages/Host/HostVanInfo";
+import Trucks from "./pages/Trucks/Trucks";
+import TruckDetail from "./pages/Trucks/TruckDetail";
 
 function App() {
   return (
@@ -34,6 +38,8 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
+            <Route path="trucks" element={<Trucks/>}/>
+            <Route path="trucks/:id" element={<TruckDetail/>}/>
 
             <Route path="host" element={<HostLayout />}>
               <Route index element={<HostDashboard />} />

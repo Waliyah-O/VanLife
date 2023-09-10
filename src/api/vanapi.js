@@ -16,6 +16,7 @@ export async function getVans(id) {
   return data.vans;
 }
 
+
 export async function getHostVans(id) {
   const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
   const res = await fetch(url);
