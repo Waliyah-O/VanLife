@@ -114,3 +114,5 @@ Query Parameters
           Clear
         </Link> */
 }
+
+{/* catch all routes, if there are no other routes listed, use <Route path="*"/> element={<h1>Page not found!</h1>} */}

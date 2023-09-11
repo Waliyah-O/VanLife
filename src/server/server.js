@@ -28,7 +28,7 @@ createServer({
       name: "Lagos Explorer",
       price: 160,
       description:
-        "The Lagos Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+        "Lagos State yellow buses, often referred to as 'Danfo' buses, are a distinctive and iconic mode of public transportation in Lagos, Nigeria. These buses are an integral part of the city's transportation system, serving as a primary means of commuting for millions of Lagosians.",
       imageUrl: van31,
       type: "luxury",
       hostId: "123",
@@ -182,13 +182,13 @@ createServer({
     });
     server.create("truck", {
       id: "1",
-      name: "Modest Explorer",
+      name: "Truck Explorer",
       price: 60,
       description:
         "The Modest Explorer is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck1,
       type: "light",
-      hostId: "123",
+      hostId: "456",
     });
     server.create("truck", {
       id: "2",
@@ -209,7 +209,7 @@ createServer({
         "Reliable Red is a truck that was made for traveling. The inside is comfortable and cozy, with plenty of space to stretch out in. There's a small kitchen, so you can cook if you need to. You'll feel like home as soon as you step out of it.",
       imageUrl: truck3,
       type: "light",
-      hostId: "456",
+      hostId: "789",
     });
     server.create("truck", {
       id: "4",
@@ -229,7 +229,7 @@ createServer({
         "Super Duty is a truck for those who love to travel in comfort and luxury. With its many windows, spacious interior and ample storage space, Super Duty offers a beautiful view wherever you go.",
       imageUrl: truck5,
       type: "light",
-      hostId: "789",
+      hostId: "123",
     });
     server.create("truck", {
       id: "6",
@@ -239,7 +239,7 @@ createServer({
         "With this truck, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.",
       imageUrl: truck6,
       type: "light",
-      hostId: "123",
+      hostId: "456",
     });
 
     server.create("truck", {
@@ -250,7 +250,7 @@ createServer({
         "This truck elevates your travel experience to new heights. The Red Thunder represents an environmentally conscious vehicle, ideal for individuals seeking a fashionable and eco-friendly means of transportation capable of traversing any terrain.",
       imageUrl: truck7,
       type: "light",
-      hostId: "456",
+      hostId: "123",
     });
     server.create("truck", {
       id: "8",
@@ -260,7 +260,7 @@ createServer({
         "The Volkswagen is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck8,
       type: "light",
-      hostId: "123",
+      hostId: "456",
     });
 
     server.create("truck", {
@@ -271,7 +271,7 @@ createServer({
         "Ultralite TB50 is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck9,
       type: "light",
-      hostId: "123",
+      hostId: "789",
     });
 
     server.create("truck", {
@@ -320,47 +320,47 @@ createServer({
 
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Big Thunder",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck14,
       type: "medium",
-      hostId: "789",
+      hostId: "456",
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Iron Hauler",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck15,
       type: "medium",
-      hostId: "789",
+      hostId: "123",
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Road Titan",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck16,
       type: "medium",
-      hostId: "789",
+      hostId: "123",
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Diesel Knight",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck17,
       type: "medium",
-      hostId: "789",
+      hostId: "456",
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Mighty Mover",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
@@ -370,23 +370,23 @@ createServer({
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Trail Blazer",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck19,
       type: "medium",
-      hostId: "789",
+      hostId: "123",
     });
     server.create("truck", {
       id: "14",
-      name: "Green Goblin",
+      name: "Rolling Thunder",
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck20,
       type: "medium",
-      hostId: "789",
+      hostId: "456",
     });
 
     server.create("user", {

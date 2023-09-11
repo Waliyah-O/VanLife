@@ -36,8 +36,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0px 10px; */
-  /* border: 2px solid orangered; */
 }
 
 header .site-logo {
@@ -86,7 +84,7 @@ nav {
   margin-right: 1em;
 }
 
-.sidebar-container{
+.sidebar-container {
   display: none;
 }
 .hamburger {
@@ -186,15 +184,24 @@ footer {
   transition: transform 0.1s ease-in-out;
 }
 
-.home-buttons{
+.home-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-@media screen and (max-width: 350px){
-  .home-buttons{
+.about-buttons {
+  display: flex;
+  gap: 2em;
+}
+
+@media screen and (max-width: 350px) {
+  .home-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-buttons {
     display: flex;
     flex-direction: column;
   }
@@ -256,7 +263,6 @@ footer {
 @media screen and (max-width: 500px) {
   .van-list-filter-buttons {
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(40%, 1fr)); */
     gap: 1em;
     padding: 1em;
   }
@@ -277,7 +283,6 @@ footer {
 
 .van-tile {
   padding: 20px;
-  /* box-shadow: 3px 3px 12px 2px #4d4d4d; */
 }
 
 .van-tile a {

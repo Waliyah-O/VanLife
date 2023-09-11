@@ -8,9 +8,7 @@ import Layout from "./components/Layout";
 import HostLayout from "./components/HostLayout";
 
 // server
-import './server/server';
-// import './server/truckServer'
-
+import "./server/server";
 
 // pages
 import AboutPage from "./pages/AboutPage";
@@ -27,6 +25,7 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import HostVanInfo from "./pages/Host/HostVanInfo";
 import Trucks from "./pages/Trucks/Trucks";
 import TruckDetail from "./pages/Trucks/TruckDetail";
+import NotFoundPage from "./pages/NotFound";
 
 function App() {
   return (
@@ -38,8 +37,8 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
-            <Route path="trucks" element={<Trucks/>}/>
-            <Route path="trucks/:id" element={<TruckDetail/>}/>
+            <Route path="trucks" element={<Trucks />} />
+            <Route path="trucks/:id" element={<TruckDetail />} />
 
             <Route path="host" element={<HostLayout />}>
               <Route index element={<HostDashboard />} />
@@ -52,6 +51,7 @@ function App() {
                 <Route path="photos" element={<HostVanPhotos />} />
               </Route>
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

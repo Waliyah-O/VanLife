@@ -61,7 +61,7 @@ const Trucks = () => {
     ) : (
       <div>
         <h1>{typeFilter} duty trucks not available yet</h1>
-        {/* <Loader/> */}
+        <Loader />
       </div>
     );
 
