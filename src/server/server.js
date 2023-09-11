@@ -5,7 +5,7 @@ import {
   van11, van12, van13, van14, van15, 
   van16, van17, van18, van19, van20, 
   van21, van22, van23, van24, van25, 
-  van26, van27, van28, van29, van30,
+  van26, van27, van28, van29, van30, van31,
 } from "../assets";
 
 import {
@@ -25,6 +25,16 @@ createServer({
   seeds(server) {
     server.create("van", {
       id: "1",
+      name: "Lagos Explorer",
+      price: 160,
+      description:
+        "The Lagos Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: van31,
+      type: "luxury",
+      hostId: "123",
+    });
+    server.create("van", {
+      id: "15",
       name: "Modest Explorer",
       price: 60,
       description:

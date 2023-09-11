@@ -1,14 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
-// import Sidebar from "./sidebar";
+import Sidebar from "./sidebar";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () => {
-    setIsOpen(!isOpen)
-  }
   return (
     <>
       <header>
@@ -41,8 +34,8 @@ const Header = () => {
             Trucks
           </NavLink>
         </nav>
-        {/* <Sidebar isOpen={isOpen} onClick={toggle}/> */}
-       
+          <Sidebar />
+        
       </header>
     </>
   );

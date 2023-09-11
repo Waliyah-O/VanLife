@@ -28,6 +28,7 @@ import van27 from './images/van26.png'
 import van28 from './images/van27.png'
 import van29 from './images/van28.png'
 import van30 from './images/van29.jpg'
+import van31 from './images/van31.jpg'
 
 
 export {
@@ -36,7 +37,7 @@ van6, van7, van8, van9, van10,
 van11, van12, van13, van14, van15, 
 van16, van17, van18, van19, van20, 
 van21, van22, van23, van24, van25, 
-van26, van27, van28, van29, van30,
+van26, van27, van28, van29, van30,van31,
 }
 
 

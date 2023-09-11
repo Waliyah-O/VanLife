@@ -34,7 +34,10 @@ const Vans = () => {
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
       {/* save search filters */}
-      <Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
+      <Link
+        to={van.id}
+        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+      >
         <img className="van-image " src={van.imageUrl} alt="" />
         <div className="van-info">
           <h3>{van.name}</h3>

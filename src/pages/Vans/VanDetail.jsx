@@ -19,11 +19,12 @@ const VanDetail = () => {
 
   //optional chaining
   const search = location.state?.search || "";
+  const type = location.state?.type || "all";
 
   return (
     <div className="van-detail-container">
       <Link to={`..${search}`} relative="path" className="back-button">
-        <span> &larr; Back to all vans</span>
+        <span> &larr; Back to {type} vans</span>
       </Link>
       {van ? (
         <div className="van-detail">
