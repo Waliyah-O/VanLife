@@ -51,9 +51,21 @@ import truck7 from './images/truck7Perfection!.jpg'
 import truck8 from './images/truck8VolkswagensaysUSpickupisbackonthetable-Autoblog.jpg'
 import truck9 from './images/truck9UltraliteTB50.jpg'
 import truck10 from './images/truck10MitsubishiFuso(2007)_ConceptTruck.jpg'
+import truck11 from './images/truck11.jpg'
+import truck12 from './images/truck12.jpg'
+import truck13 from './images/truck13BlackCatSkidsteer.jpg'
+import truck14 from './images/truck14.jpg'
+import truck15 from './images/truck15.jpg'
+import truck16 from './images/truck16.jpg'
+import truck17 from './images/truck17.jpg'
+import truck18 from './images/truck18.jpg'
+import truck19 from './images/truck19.jpg'
+import truck20 from './images/truck20.jpg'
 
 
 export {
 	truck1, truck2, truck3, truck4, truck5, 
-	truck6, truck7, truck8, truck9, truck10
+	truck6, truck7, truck8, truck9, truck10,
+	truck11, truck12, truck13, truck14, truck15,
+	truck16, truck17, truck18, truck19, truck20,
 }

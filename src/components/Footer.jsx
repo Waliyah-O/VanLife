@@ -1,7 +1,10 @@
 const Footer = () => {
+
+  let date = new Date()
+  
   return (
     <>
-      <footer>&#169; 2023 #RENT_A_RIG</footer>
+      <footer>&#169; {date.getFullYear()} #RentARig</footer>
     </>
   );
 };

@@ -8,16 +8,20 @@ const TruckDetail = () => {
   // console.log(location);
   
   useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
+    fetch(`/api/trucks/${params.id}`)
       .then((res) => res.json())
-      .then((data) => setTruck(data.vans))
+      .then((data) => setTruck(data.trucks))
       .catch((error) => console.log(error));
   }, [params.id]);
+
+  if (!truck) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="van-detail-container">
       <Link to=".." relative="path" className="back-button">
-        <span> &larr; Back to all vans</span>
+        <span> &larr; Back to all trucks</span>
       </Link>
       {truck ? (
         <div className="van-detail">

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
 const VanDetail = () => {
-  const [van, setVan] = useState([]);
   const params = useParams();
-  const location = useLocation()
+  const location = useLocation();
   // console.log(location);
-  
+  const [van, setVan] = useState([]);
+
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
@@ -14,9 +14,15 @@ const VanDetail = () => {
       .catch((error) => console.log(error));
   }, [params.id]);
 
+  // incase location.state.search des not exists
+  // const search = location.state && location.state.search || ""
+
+  //optional chaining
+  const search = location.state?.search || "";
+
   return (
     <div className="van-detail-container">
-      <Link to=".." relative="path" className="back-button">
+      <Link to={`..${search}`} relative="path" className="back-button">
         <span> &larr; Back to all vans</span>
       </Link>
       {van ? (

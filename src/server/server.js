@@ -10,8 +10,10 @@ import {
 
 import {
   truck1, truck2, truck3, truck4, truck5, 
-	truck6, truck7, truck8, truck9, truck10
-} from '../assets'
+	truck6, truck7, truck8, truck9, truck10,
+  truck11, truck12, truck13, truck14, truck15,
+	truck16, truck17, truck18, truck19, truck20,
+} from '../assets/index'
 
 createServer({
   models: {
@@ -226,7 +228,7 @@ createServer({
       description:
         "With this truck, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.",
       imageUrl: truck6,
-      type: "medium",
+      type: "light",
       hostId: "123",
     });
 
@@ -279,8 +281,8 @@ createServer({
       price: 180,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl: van5,
-      type: "heavy",
+      imageUrl: truck11,
+      type: "medium",
       hostId: "123",
     });
 
@@ -290,19 +292,19 @@ createServer({
       price: 180,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl: van6,
+      imageUrl: truck12,
       type: "medium",
       hostId: "789",
     });
 
     server.create("truck", {
       id: "13",
-      name: "The Emperor",
+      name: "Black Cat Skidsteer",
       price: 380,
       description:
-        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl: van22,
-      type: "heavy",
+        "The Black Cat Skidsteer is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck13,
+      type: "medium",
       hostId: "789",
     });
 
@@ -312,7 +314,67 @@ createServer({
       price: 380,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl: van6,
+      imageUrl: truck14,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck15,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck16,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck17,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck18,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck19,
+      type: "medium",
+      hostId: "789",
+    });
+    server.create("truck", {
+      id: "14",
+      name: "Green Goblin",
+      price: 380,
+      description:
+        "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: truck20,
       type: "medium",
       hostId: "789",
     });

@@ -34,7 +34,7 @@ const Vans = () => {
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
       {/* save search filters */}
-      <Link to={van.id} state={{ search: `${searchParams.toString()}` }}>
+      <Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
         <img className="van-image " src={van.imageUrl} alt="" />
         <div className="van-info">
           <h3>{van.name}</h3>
@@ -97,64 +97,3 @@ const Vans = () => {
 };
 
 export default Vans;
-
-{
-  /* <div className="van-list-filter-buttons">
-        <button
-          className="van-type simple"
-          onClick={() => setSearchParams({ type: "simple" })}
-        >
-          Simple
-        </button>
-        <button
-          className="van-type luxury"
-          onClick={() => setSearchParams({ type: "luxury" })}
-        >
-          luxury
-        </button>
-        <button
-          className="van-type rugged"
-          onClick={() => setSearchParams({ type: "rugged" })}
-        >
-          rugged
-        </button>
-        <button
-          className="van-type clear-filters"
-          onClick={() => setSearchParams({})}
-        >
-          clear filter
-        </button>
-      </div> */
-}
-
-// function genNewSearchParamString(key, value) {
-//   const searchParams = new URLSearchParams(searchParams);
-//   if (value === null) {
-//     searchParams.delete(key);
-//   } else {
-//     searchParams.set(key, value);
-//   }
-//  return `?${searchParams.toString()}
-// }
-
-{
-  /* <Link to={genNewSearchParamString("type", "luxury")}>Luxury</Link>
-<Link to={genNewSearchParamString("type", "simple")}>Simple</Link>
-<Link to={genNewSearchParamString("type", "rugged")}>Rugged</Link>
-<Link to={genNewSearchParamString("type", null)}>Clear</Link> */
-}
-
-{
-  /* <Link className="van-type simple" to="?type=simple">
-          Simple
-        </Link>
-        <Link className="van-type luxury" to="?type=luxury">
-          Luxury
-        </Link>
-        <Link className="van-type rugged" to="?type=rugged">
-          Rugged
-        </Link>
-        <Link className="van-type clear-filters" to=".">
-          Clear
-        </Link> */
-}

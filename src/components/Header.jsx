@@ -1,18 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
+// import Sidebar from "./sidebar";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const openMenu = () => {
-    isOpen === true ? setIsOpen(false) : setIsOpen(true);
-  };
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
   return (
-    <div>
+    <>
       <header>
         <Link className="site-logo" to="/">
-          #RENT_A_RIG
+          #rent_a_rig
         </Link>
         <nav>
           <NavLink
@@ -39,12 +40,11 @@ const Header = () => {
           >
             Trucks
           </NavLink>
-          {/* <div className="hamburger">
-            <RxHamburgerMenu onClick={openMenu} />
-          </div> */}
         </nav>
+        {/* <Sidebar isOpen={isOpen} onClick={toggle}/> */}
+       
       </header>
-    </div>
+    </>
   );
 };
 

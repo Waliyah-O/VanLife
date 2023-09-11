@@ -8,7 +8,7 @@ const HomePage = () => {
         Add adventure to your life by joining the #RentARig movement. Rent the
         perfect van to make your perfect road trip.
       </p>
-      <div style={{display: 'flex', gap: '2em'}}>
+      <div className="home-buttons">
         <Link to="vans">Find your van</Link>
         <Link to="trucks">Find your truck</Link>
       </div>

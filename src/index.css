@@ -25,6 +25,7 @@ body {
 }
 
 .site-wrapper {
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,12 +35,13 @@ header {
   height: 110px;
   display: flex;
   align-items: center;
-  padding-block: 10px;
+  justify-content: space-between;
+  /* padding: 0px 10px; */
+  /* border: 2px solid orangered; */
 }
 
 header .site-logo {
   color: black;
-  margin-right: auto;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 25px;
@@ -48,11 +50,16 @@ header .site-logo {
 a.active-link {
   font-weight: bold;
   text-decoration: underline;
+  background-color: #ffcc8d;
+  border-radius: 4px;
   color: #161616;
   font-weight: 3em;
 }
 
 header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #4d4d4d;
   font-weight: 600;
@@ -77,21 +84,19 @@ header .login-link {
 nav {
   display: flex;
 }
-
-/* .hamburger {
-  visibility: hidden;
+.hamburger {
+  display: none;
   font-size: 2em;
-  margin-right: 1em;
-} */
+}
 
-/* @media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   nav {
-    visibility: hidden;
+    display: none;
   }
   .hamburger {
-    visibility: visible;
+    display: block;
   }
-} */
+}
 
 main {
   margin-bottom: 84px;
@@ -167,13 +172,27 @@ footer {
   background-color: #ff8c38;
   border: none;
   width: 100%;
-  margin-top: 27px;
+  margin-top: 7px;
   padding-block: 0.75rem;
   color: white;
   font-weight: 700;
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
+}
+
+.home-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 350px){
+  .home-buttons{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .home-container a:hover {
@@ -229,6 +248,15 @@ footer {
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 500px) {
+  .van-list-filter-buttons {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(40%, 1fr)); */
+    gap: 1em;
+    padding: 1em;
+  }
+}
+
 .van-list-filter-buttons > a {
   margin-right: 15px;
 }
@@ -272,8 +300,17 @@ footer {
   background-color: #ffead0;
   color: #4d4d4d;
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+@media screen and (max-width: 500px) {
+  .van-type {
+    display: flex;
+    font-size: 12px;
+  }
+}
 
 .truck-type {
   height: 34px;
@@ -283,11 +320,9 @@ footer {
   border: none;
   border-radius: 5px;
   background-color: #ffead0;
-  color: #d4d0d0;
-  /* color: #1c80b4; */
+  color: #f5f3f3;
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 .truck-type.light:hover,
 .truck-type.light.selected {
@@ -303,9 +338,6 @@ footer {
 .truck-type.heavy.selected {
   background-color: #161616;
 }
-
-
-
 
 .van-type:hover {
   color: #ffead0;
