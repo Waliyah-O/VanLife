@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../../api/vanapi";
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [vans, setVans] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   const typeFilter = searchParams.get("type");
   // console.log(typeFilter);
   // console.log(searchParams.toString());
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans))
-      .catch((error) => console.log(error));
+    async function loadVans() {
+      setLoading(true)
+      const data = await getVans();
+      setVans(data);
+      setLoading(false)
+    }
+
+    loadVans();
   }, []);
 
   const displayedVans = typeFilter
@@ -31,7 +37,10 @@ const Vans = () => {
     });
   }
 
-  
+  if(loading){
+    return <h1>Loading...</h1>
+  }
+
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
       {/* save search filters */}

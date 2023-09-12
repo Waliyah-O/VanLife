@@ -180,6 +180,26 @@ createServer({
       type: "simple",
       hostId: "123",
     });
+    server.create("van", {
+      id: "16",
+      name: "Modest Explorer",
+      price: 60,
+      description:
+        "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: van2,
+      type: "simple",
+      hostId: "123",
+    });
+    server.create("van", {
+      id: "17",
+      name: "Modest Explorer",
+      price: 60,
+      description:
+        "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: van3,
+      type: "simple",
+      hostId: "123",
+    });
     // TRUCKS
     server.create("truck", {
       id: "1",
@@ -417,7 +437,7 @@ createServer({
     this.namespace = "api";
     this.passthrough("https://firestore.googleapis.com/**");
     this.logging = false;
-    // this.timing = 2000
+    this.timing = 2000
 
     this.get("/vans", (schema, request) => {
       // return new Response(400, {}, {error: "Error fetching data"})
@@ -451,12 +471,12 @@ createServer({
     });
 
     this.get("/host/trucks", (schema, request) => {
-      // Hard-code the hostId for now
+      // Hard-coding the hostId for now
       return schema.trucks.where({ hostId: "123" });
     });
 
     this.get("/host/trucks/:id", (schema, request) => {
-      // Hard-code the hostId for now
+      // Hard-coding the hostId for now
       const id = request.params.id;
       return schema.trucks.findBy({ id, hostId: "123" });
     });
@@ -465,9 +485,6 @@ createServer({
       "/login",
       (schema, request) => {
         const { email, password } = JSON.parse(request.requestBody);
-        // This is an extremely naive version of authentication. Please don't
-        // do this in the real world, and never save raw text passwords
-        // in your database 😇
         const foundUser = schema.users.findBy({ email, password });
         if (!foundUser) {
           return new Response(
