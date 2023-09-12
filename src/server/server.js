@@ -5,15 +5,15 @@ import {
   van11, van12, van13, van14, van15, 
   van16, van17, van18, van19, van20, 
   van21, van22, van23, van24, van25, 
-  van26, van27, van28, van29, van30, van31,
+  van26, van27, van28, van29, van30,van31,
 } from "../assets";
 
 import {
   truck1, truck2, truck3, truck4, truck5, 
 	truck6, truck7, truck8, truck9, truck10,
-  truck11, truck12, truck13, truck14, truck15,
+	truck11, truck12, truck13, truck14, truck15,
 	truck16, truck17, truck18, truck19, truck20,
-} from '../assets/index'
+} from "../assets/index";
 
 createServer({
   models: {
@@ -31,16 +31,6 @@ createServer({
         "Lagos State yellow buses, often referred to as 'Danfo' buses, are a distinctive and iconic mode of public transportation in Lagos, Nigeria. These buses are an integral part of the city's transportation system, serving as a primary means of commuting for millions of Lagosians.",
       imageUrl: van31,
       type: "luxury",
-      hostId: "123",
-    });
-    server.create("van", {
-      id: "15",
-      name: "Modest Explorer",
-      price: 60,
-      description:
-        "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
-      imageUrl: van24,
-      type: "simple",
       hostId: "123",
     });
     server.create("van", {
@@ -180,6 +170,17 @@ createServer({
       type: "rugged",
       hostId: "789",
     });
+    server.create("van", {
+      id: "15",
+      name: "Modest Explorer",
+      price: 60,
+      description:
+        "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
+      imageUrl: van24,
+      type: "simple",
+      hostId: "123",
+    });
+    // TRUCKS
     server.create("truck", {
       id: "1",
       name: "Truck Explorer",
@@ -279,12 +280,13 @@ createServer({
       name: "Mitsubishi Fuso",
       price: 160,
       description:
-        "Mitsubishi Fuso is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchene   tte. The idea is that you can pack up your home and escape for a weekend or even longer!",
+        "Mitsubishi Fuso is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck10,
       type: "light",
       hostId: "456",
     });
 
+    // MEDIUM TRUCKS
     server.create("truck", {
       id: "11",
       name: "Sleek Orange",
@@ -329,7 +331,7 @@ createServer({
       hostId: "456",
     });
     server.create("truck", {
-      id: "14",
+      id: "15",
       name: "Iron Hauler",
       price: 380,
       description:
@@ -339,7 +341,7 @@ createServer({
       hostId: "123",
     });
     server.create("truck", {
-      id: "14",
+      id: "16",
       name: "Road Titan",
       price: 380,
       description:
@@ -349,7 +351,7 @@ createServer({
       hostId: "123",
     });
     server.create("truck", {
-      id: "14",
+      id: "17",
       name: "Diesel Knight",
       price: 380,
       description:
@@ -359,7 +361,7 @@ createServer({
       hostId: "456",
     });
     server.create("truck", {
-      id: "14",
+      id: "18",
       name: "Mighty Mover",
       price: 380,
       description:
@@ -369,7 +371,7 @@ createServer({
       hostId: "789",
     });
     server.create("truck", {
-      id: "14",
+      id: "19",
       name: "Trail Blazer",
       price: 380,
       description:
@@ -379,7 +381,7 @@ createServer({
       hostId: "123",
     });
     server.create("truck", {
-      id: "14",
+      id: "20",
       name: "Rolling Thunder",
       price: 380,
       description:
@@ -390,6 +392,13 @@ createServer({
     });
 
     server.create("user", {
+      id: "123",
+      email: "cat.com",
+      password: "p123",
+      name: "Cat",
+    });
+
+    server.create("user", {
       id: "456",
       email: "b@b.com",
       password: "p456",
@@ -397,10 +406,10 @@ createServer({
     });
 
     server.create("user", {
-      id: "123",
-      email: "b@b.com",
-      password: "p123",
-      name: "Bob",
+      id: "789",
+      email: "tom.com",
+      password: "p789",
+      name: "Tom",
     });
   },
 

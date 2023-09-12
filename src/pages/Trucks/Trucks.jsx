@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import Loader from "../../components/Loader";
+import { Link, useSearchParams } from "react-router-dom"; 
 
 const Trucks = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,7 +60,6 @@ const Trucks = () => {
     ) : (
       <div>
         <h1>{typeFilter} duty trucks not available yet</h1>
-        <Loader />
       </div>
     );
 

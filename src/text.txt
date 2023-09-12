@@ -116,3 +116,14 @@ Query Parameters
 }
 
 {/* catch all routes, if there are no other routes listed, use <Route path="*"/> element={<h1>Page not found!</h1>} */}
+
+"HAPPY PATH"
+    Assumes everything goes according to plan exactly as we hope it does. WHen the dev assumes that the user is going to use the app according to the way the dev expects/wants and everything goes according to plan.
+    But,
+    It does not account for errors of other problems that could occur when the app is deployed
+
+
+"SAD PATH"
+    Forces us to imagine what could go wrong and plan accordingly.
+    things like 
+      Error handling, lading states, form validation etc

@@ -31,6 +31,7 @@ const Vans = () => {
     });
   }
 
+  
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
       {/* save search filters */}

@@ -14,7 +14,7 @@ const VanDetail = () => {
       .catch((error) => console.log(error));
   }, [params.id]);
 
-  // incase location.state.search des not exists
+  // incase location.state.search does not exists
   // const search = location.state && location.state.search || ""
 
   //optional chaining

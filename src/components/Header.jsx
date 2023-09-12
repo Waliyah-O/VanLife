@@ -34,7 +34,7 @@ const Header = () => {
             Trucks
           </NavLink>
         </nav>
-          <Sidebar />
+        <Sidebar />
         
       </header>
     </>
