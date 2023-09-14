@@ -127,3 +127,28 @@ Query Parameters
     Forces us to imagine what could go wrong and plan accordingly.
     things like 
       Error handling, lading states, form validation etc
+
+
+
+1.  when does th3 code in a loader function run?
+runs before react router allows the route to change and that new component to change. A loader function runs before the component loads and the route change happens
+
+
+2. benefits of fetching data using a data loader function instead of using useEffect()
+  a.   we don't have to handle error states
+  b.   we don't have to write a lengthy useEffect
+  c.   we don't also have to worry about the loading    state
+
+3.  what change do we need to make to our BrowserROuter before we can use loaders (or any of the new data-layer API d=features) in our app?
+  a.  Get rid of BrowserRouter
+  b. use createBrowserRouter(createRoutesFromElements(<Route path="" element={<Component/>}/>)) instead. you can also nest your routes here
+
+
+4.   what are the steps we need to take in order to use a loader on any given route?
+  a.  define and export a loader fn from the components that's loading the data. export function loader() {
+  return getVans()
+  
+}
+  b. import the loader fn to the component where you have your routes set up import { loader as vansPageLoader } from "./pages/Vans/Vans";
+  c.  pass it to the route you want to fetch the data for loader={loader}
+  d. use the useLoaderData() hook to get the data from the loader fn  const vans = useLoaderData()
