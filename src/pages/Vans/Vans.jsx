@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { getVans } from "../../api/vanapi";
+import LoadingDots from "../../components/LoadingDots";
+
+export function loader(){
+  return "Van data goes here";
+};
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [vans, setVans] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const typeFilter = searchParams.get("type");
   // console.log(typeFilter);
@@ -13,10 +19,16 @@ const Vans = () => {
 
   useEffect(() => {
     async function loadVans() {
-      setLoading(true)
-      const data = await getVans();
-      setVans(data);
-      setLoading(false)
+      setLoading(true);
+      try {
+        const data = await getVans();
+        setVans(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+      setLoading(false);
     }
 
     loadVans();
@@ -37,8 +49,16 @@ const Vans = () => {
     });
   }
 
-  if(loading){
-    return <h1>Loading...</h1>
+  if (loading) {
+    return (
+      <h1>
+        Loading <LoadingDots />
+      </h1>
+    );
+  }
+
+  if (error) {
+    return <h1>There was an error: {error.message} </h1>;
   }
 
   const vanElements = displayedVans.map((van) => (

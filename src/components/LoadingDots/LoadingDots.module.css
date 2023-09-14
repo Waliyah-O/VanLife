@@ -1,0 +1,21 @@
+.dot {
+  animation: blink 0.5s linear var(--delay) infinite alternate;
+}
+
+.dot1 {
+  --delay: 0.5s;
+}
+
+.dot2 {
+  --delay: 0.7s;
+}
+
+.dot3 {
+  --delay: 1s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+}
