@@ -35,13 +35,19 @@ import NotFoundPage from "./pages/NotFound";
 
 // loader
 import { loader as vansPageLoader } from "./pages/Vans/Vans";
+import Error from "./components/Error";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
       <Route path="about" element={<AboutPage />} />
-      <Route path="vans" element={<Vans />} loader={vansPageLoader} />
+      <Route 
+        path="vans" 
+        element={<Vans />} 
+        errorElement={<Error/>}
+        loader={vansPageLoader} 
+      />
       <Route path="vans/:id" element={<VanDetail />} />
       <Route path="trucks" element={<Trucks />} />
       <Route path="trucks/:id" element={<TruckDetail />} />
