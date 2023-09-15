@@ -42,11 +42,11 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
       <Route path="about" element={<AboutPage />} />
-      <Route 
-        path="vans" 
-        element={<Vans />} 
-        errorElement={<Error/>}
-        loader={vansPageLoader} 
+      <Route
+        path="vans"
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={vansPageLoader}
       />
       <Route path="vans/:id" element={<VanDetail />} />
       <Route path="trucks" element={<Trucks />} />

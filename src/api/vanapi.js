@@ -5,6 +5,19 @@ function sleep(ms) {
 export async function getVans(id) {
   const url = id ? `/api/vans/${id}` : "/api/vans";
   const res = await fetch(url);
+
+
+// Randomly decide whether to throw an error
+  // const shouldThrowError = Math.random() >= 0.5; 
+
+  // if (shouldThrowError) {
+  //   throw {
+  //     message: "Failed to fetch vans",
+  //     statusText: res.statusText,
+  //     status: res.status,
+  //   };
+  // }
+  
   if (!res.ok) {
     throw {
       message: "Failed to fetch vans",
@@ -15,6 +28,7 @@ export async function getVans(id) {
   const data = await res.json();
   return data.vans;
 }
+
 
 
 export async function getHostVans(id) {
