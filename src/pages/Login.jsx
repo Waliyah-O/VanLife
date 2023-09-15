@@ -35,7 +35,7 @@ const Login = () => {
           type="password"
           value={loginFormData.password}
         />
-		<button>Log in</button>
+        <button>Log in</button>
       </form>
     </div>
   );
