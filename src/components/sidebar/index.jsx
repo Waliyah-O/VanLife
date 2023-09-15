@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import avatarIcon from "../../assets/images/avatar-icon.png";
 import "./sidebar.scss";
-// import './sidebar.css'
 const Sidebar = () => {
   return (
     <>
@@ -17,6 +17,9 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to="trucks">Trucks</NavLink>
+          </li>
+          <li>
+            <Link to="login">Login</Link>
           </li>
         </ul>
       </div>

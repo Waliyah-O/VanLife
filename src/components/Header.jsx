@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import Sidebar from "./sidebar";
+import avatarIcon from "../assets/images/avatar-icon.png";
 
 const Header = () => {
   return (
@@ -33,9 +34,11 @@ const Header = () => {
           >
             Trucks
           </NavLink>
+          <Link to="login" className="login-link">
+            <img src={avatarIcon} alt="avatar-icon" />
+          </Link>
         </nav>
         <Sidebar />
-        
       </header>
     </>
   );

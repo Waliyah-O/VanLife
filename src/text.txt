@@ -152,3 +152,9 @@ runs before react router allows the route to change and that new component to ch
   b. import the loader fn to the component where you have your routes set up import { loader as vansPageLoader } from "./pages/Vans/Vans";
   c.  pass it to the route you want to fetch the data for loader={loader}
   d. use the useLoaderData() hook to get the data from the loader fn  const vans = useLoaderData()
+
+
+Protected routes 
+  Used to stop data fetching of sensitive information. Only allows logged-in users to access their data
+
+  If user isn't logged in, stop data fetching by blocking components from rendering and send to the Login page. Since fetching is happening inside the components, if those components never render, the fetching never happens.

@@ -604,6 +604,7 @@ i[class*="van-type-"] {
   flex-direction: column;
   width: 100%;
   max-width: 500px;
+  gap: 2px;
 }
 
 .login-form > input {
