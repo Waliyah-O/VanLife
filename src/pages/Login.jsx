@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
 import { loginUser } from "../api/vanapi";
 
 export function loader({ request }) {
   // ibile (native) javascript lol
   return new URL(request.url).searchParams.get("message");
 }
+
+export async function action() {
+  console.log("action function");
+  return null
+}
+
 const Login = () => {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -13,7 +19,7 @@ const Login = () => {
   });
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
   const message = useLoaderData();
   // console.log(message);
 
@@ -22,45 +28,46 @@ const Login = () => {
     setStatus("submitting");
     setError(null);
     loginUser(loginFormData)
-      .then((data) => console.log(data))
+      .then((data) => navigate("/host", { replace: true }))
       .catch((err) => setError(err))
       .finally(() => setStatus("idle"));
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setLoginFormData((prev) => ({ ...prev, [name]: value }));
+  // };
 
   return (
     <div className="login-container">
       <h1>sign in to your account</h1>
       {message && <h3 className="login-error">{message}</h3>}
       {error && <h4 className="login-error">{error.message}</h4>}
-      <form onSubmit={handleSubmit} className="login-form">
+
+      <Form method="post" className="login-form">
         <input
           name="email"
-          onChange={handleChange}
           placeholder=" Email address"
           type="email"
-          value={loginFormData.email}
+          // value={loginFormData.email}
+          // onChange={handleChange}
         />
         <input
           name="password"
-          onChange={handleChange}
           placeholder="Password"
           type="password"
-          value={loginFormData.password}
+          // value={loginFormData.password}
+          // onChange={handleChange}
         />
         <button 
           disabled={status === "submitting"}
         >
-          {status === "submitting" 
+            {status === "submitting" 
             ? "Logging in..." 
             : "Log in"
           }
         </button>
-      </form>
+      </Form>
     </div>
   );
 };

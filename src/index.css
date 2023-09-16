@@ -84,7 +84,6 @@ nav {
   margin-right: 1em;
 }
 
-
 @media screen and (max-width: 680px) {
   nav {
     display: none;
@@ -438,6 +437,17 @@ i[class*="van-type-"] {
 .host-nav {
   display: flex;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 425px) {
+  .host-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .host-nav a:hover {
+    background-color: #ffcc8d;
+  }
 }
 
 .host-nav a {
