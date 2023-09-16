@@ -413,7 +413,7 @@ createServer({
 
     server.create("user", {
       id: "123",
-      email: "cat.com",
+      email: "c@t.com",
       password: "p123",
       name: "Cat",
     });
@@ -427,7 +427,7 @@ createServer({
 
     server.create("user", {
       id: "789",
-      email: "tom.com",
+      email: "t@m.com",
       password: "p789",
       name: "Tom",
     });
