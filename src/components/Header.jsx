@@ -1,8 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, redirect } from "react-router-dom";
 import Sidebar from "./sidebar";
 import avatarIcon from "../assets/images/avatar-icon.png";
 
 const Header = () => {
+  
+  function fakeLogOut() {
+    localStorage.removeItem("loggedIn");
+    const response = redirect("/login");
+    response.body = true;
+    return response;
+  }
+
   return (
     <>
       <header>
@@ -37,6 +45,7 @@ const Header = () => {
           <Link to="login" className="login-link">
             <img src={avatarIcon} alt="avatar-icon" />
           </Link>
+          <button onClick={fakeLogOut}>X</button>
         </nav>
         <Sidebar />
       </header>

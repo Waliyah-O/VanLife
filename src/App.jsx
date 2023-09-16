@@ -14,6 +14,7 @@ import HostLayout from "./components/HostLayout";
 
 // server
 import "./server/server";
+// clear out local storage
 
 // pages
 import AboutPage from "./pages/AboutPage";

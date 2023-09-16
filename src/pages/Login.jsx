@@ -7,16 +7,22 @@ export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
 }
 
-export async function action() {
-  console.log("action function");
-  return null
+export async function action({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const data = await loginUser({ email, password });
+  localStorage.setItem("loggedIn", true);
+  console.log(data);
+  const response = redirect("/host");
+  response.body = true;
+  return response;
+
+  // save user data in local storage
+  // save token in a cookie
 }
 
 const Login = () => {
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: "",
-  });
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -59,13 +65,8 @@ const Login = () => {
           // value={loginFormData.password}
           // onChange={handleChange}
         />
-        <button 
-          disabled={status === "submitting"}
-        >
-            {status === "submitting" 
-            ? "Logging in..." 
-            : "Log in"
-          }
+        <button disabled={status === "submitting"}>
+          {status === "submitting" ? "Logging in..." : "Log in"}
         </button>
       </Form>
     </div>
