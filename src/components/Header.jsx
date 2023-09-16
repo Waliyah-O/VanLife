@@ -1,15 +1,42 @@
-import { Link, NavLink, redirect } from "react-router-dom";
+import { Link, NavLink, redirect, useNavigate } from "react-router-dom";
 import Sidebar from "./sidebar";
 import avatarIcon from "../assets/images/avatar-icon.png";
+import { useState } from "react";
+import Loader from "./Loader";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 
 const Header = () => {
-  
-  function fakeLogOut() {
-    localStorage.removeItem("loggedIn");
-    const response = redirect("/login");
-    response.body = true;
-    return response;
-  }
+  const navigate = useNavigate();
+  const [loggingOut, setLoggingOut] = useState(false);
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+  // function fakeLogOut() {
+  //   setLoggingOut(true)
+  //   localStorage.removeItem("loggedIn");
+  //   setTimeout(() => {
+  //     navigate("/login");
+  //   }, 2000);
+  //   // const response = redirect("/login");
+  //   // response.body = true;
+  //   // return response;
+  // }
+
+  const fakeLogOut = () => {
+    // Show the loader
+    setLoggingOut(true);
+
+    // Simulate the logout process
+    setTimeout(() => {
+      // Clear local storage
+      localStorage.removeItem("loggedIn");
+
+      // Hide the loader
+      setLoggingOut(false);
+
+      // Redirect to the login page
+      navigate("/login");
+    }, 2000);
+  };
 
   return (
     <>
@@ -42,10 +69,24 @@ const Header = () => {
           >
             Trucks
           </NavLink>
-          <Link to="login" className="login-link">
-            <img src={avatarIcon} alt="avatar-icon" />
-          </Link>
-          <button onClick={fakeLogOut}>X</button>
+
+          {isLoggedIn ? (
+            <div onClick={fakeLogOut}>
+              <NavLink>
+                <FiLogOut />
+              </NavLink>
+              {/* {loggingOut && (
+                <div>
+                  <Loader />
+                </div>
+              )} */}
+            </div>
+          ) : (
+            <NavLink to="login" className="login-link">
+              <img src={avatarIcon} alt="avatar-icon" />
+              {/* <FiLogIn /> */}
+            </NavLink>
+          )}
         </nav>
         <Sidebar />
       </header>

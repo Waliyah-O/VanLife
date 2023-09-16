@@ -133,58 +133,153 @@
 
 // export default Vans;
 
-import { useEffect, useState } from "react";
-import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVans } from "../../api/vanapi";
+// import { useEffect, useState } from "react";
+// import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+// import { getVans } from "../../api/vanapi";
 
-export function loader({ params }) {
-  console.log(params);
-  return getVans(params.id);
+// export function loader({ params }) {
+//   console.log(params);
+//   return getVans(params.id);
+// }
+
+// const VanDetail = () => {
+//   const params = useParams();
+//   const location = useLocation();
+//   // console.log(location);
+//   // const [van, setVan] = useState([]);
+//   const van = useLoaderData();
+//   console.log(van);
+
+//   // useEffect(() => {
+//   //   fetch(`/api/vans/${params.id}`)
+//   //     .then((res) => res.json())
+//   //     .then((data) => setVan(data.vans))
+//   //     .catch((error) => console.log(error));
+//   // }, [params.id]);
+
+//   // incase location.state.search does not exists
+//   // const search = location.state && location.state.search || ""
+
+//   //optional chaining
+//   const search = location.state?.search || "";
+//   const type = location.state?.type || "all";
+
+//   return (
+//     <div className="van-detail-container">
+//       <Link to={`..${search}`} relative="path" className="back-button">
+//         <span> &larr; Back to {type} vans</span>
+//       </Link>
+//       {van ? (
+//         <div className="van-detail">
+//           <img src={van.imageUrl} alt="" />
+//           <i className={`van.imageUrl ${van.type} selected`}></i>
+//           <h2>{van.name}</h2>
+//           <p className="van-price">
+//             <span>${van.price}</span>/day
+//           </p>
+//           <p>{van.description}</p>
+//           <button className="link-button">Rent this van</button>
+//         </div>
+//       ) : (
+//         <h2>Loading...</h2>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default VanDetail;
+
+import { useState } from "react";
+import {
+  useLoaderData,
+  useNavigate,
+  Form,
+  redirect,
+  useActionData,
+  useNavigation,
+} from "react-router-dom";
+import { loginUser } from "../api/vanapi";
+
+export function loader({ request }) {
+  // ibile (native) javascript lol!
+  return new URL(request.url).searchParams.get("message");
 }
 
-const VanDetail = () => {
-  const params = useParams();
-  const location = useLocation();
-  // console.log(location);
-  // const [van, setVan] = useState([]);
-  const van = useLoaderData();
-  console.log(van);
+export async function action({ request }) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-  // useEffect(() => {
-  //   fetch(`/api/vans/${params.id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setVan(data.vans))
-  //     .catch((error) => console.log(error));
-  // }, [params.id]);
+  try {
+    const data = await loginUser({ email, password });
+    localStorage.setItem("loggedIn", true);
+    console.log(data);
+    const response = redirect("/host");
+    response.body = true;
+    return response;
+  } catch (err) {
+    return err.message;
+  }
 
-  // incase location.state.search does not exists
-  // const search = location.state && location.state.search || ""
+  // save user data in local storage
+  // save token in a cookie
+}
 
-  //optional chaining
-  const search = location.state?.search || "";
-  const type = location.state?.type || "all";
+const Login = () => {
+  // const [loginFormData, setLoginFormData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+  // const [status, setStatus] = useState("idle");
+  // const [error, setError] = useState(null);
+  // const navigate = useNavigate();
+  const message = useLoaderData();
+  // console.log(message);
+  const errorMessage = useActionData();
+  const navigation = useNavigation();
+  console.log(navigation.state);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setStatus("submitting");
+  //   setError(null);
+  //   loginUser(loginFormData)
+  //     .then(() => navigate("/host", { replace: true }))
+  //     .finally(() => setStatus("idle"));
+  // };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setLoginFormData((prev) => ({ ...prev, [name]: value }));
+  // };
 
   return (
-    <div className="van-detail-container">
-      <Link to={`..${search}`} relative="path" className="back-button">
-        <span> &larr; Back to {type} vans</span>
-      </Link>
-      {van ? (
-        <div className="van-detail">
-          <img src={van.imageUrl} alt="" />
-          <i className={`van.imageUrl ${van.type} selected`}></i>
-          <h2>{van.name}</h2>
-          <p className="van-price">
-            <span>${van.price}</span>/day
-          </p>
-          <p>{van.description}</p>
-          <button className="link-button">Rent this van</button>
-        </div>
-      ) : (
-        <h2>Loading...</h2>
-      )}
+    <div className="login-container">
+      <h1>sign in to your account</h1>
+      {message && <h3 className="login-error">{message}</h3>}
+      {errorMessage && <h4 className="login-error">{errorMessage}</h4>}
+
+      <Form method="post" className="login-form" replace>
+        <input
+          name="email"
+          placeholder=" Email address"
+          type="email"
+          // value={loginFormData.email}
+          // onChange={handleChange}
+        />
+        <input
+          name="password"
+          placeholder="Password"
+          type="password"
+          // value={loginFormData.password}
+          // onChange={handleChange}
+        />
+        <button disabled={navigation.state === "submitting"}>
+          {navigation.state === "submitting" ? "Logging in..." : "Log in"}
+        </button>
+      </Form>
     </div>
   );
 };
 
-export default VanDetail;
+export default Login;

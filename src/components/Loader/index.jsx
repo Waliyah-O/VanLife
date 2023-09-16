@@ -1,12 +1,10 @@
-import React from "react";
 import "./loader.css";
 
 const Loader = () => {
   return (
-    <>
-      <div className="ball"></div>
-      <div className="shadow"></div>
-    </>
+    <div>
+      <div className="loader"></div>
+    </div>
   );
 };
 
