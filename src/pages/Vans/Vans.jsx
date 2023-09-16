@@ -9,10 +9,8 @@ export function loader() {
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [vans, setVans] = useState([]);
   const [error, setError] = useState(null);
   const vans = useLoaderData()
-  // console.log(data);
 
   const typeFilter = searchParams.get("type");
   // console.log(typeFilter);

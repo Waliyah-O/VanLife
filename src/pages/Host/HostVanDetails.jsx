@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams, NavLink } from "react-router-dom";
+
+import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
 import { activeStyle } from "../../components/HostLayout";
+import { getHostVans } from "../../api/vanapi";
+import { requireAuth } from "../../utils";
+
+export async function loader({ params }) {
+  await requireAuth();
+  return getHostVans(params.id);
+}
 
 const HostVanDetails = () => {
-  const [currentVan, setCurrentVan] = useState(null);
-  const { id } = useParams();
+  const currentVan = useLoaderData();
 
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans))
-      .catch((error) => console.log(error));
-  }, [id]);
+  // useEffect(() => {
+  //   fetch(`/api/host/vans/${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setCurrentVan(data.vans))
+  //     .catch((error) => console.log(error));
+  // }, [id]);
 
   if (!currentVan) {
     return <h1>Loading...</h1>;

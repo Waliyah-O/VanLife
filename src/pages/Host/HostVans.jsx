@@ -1,19 +1,18 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api/vanapi";
+import { requireAuth } from "../../utils";
+
+export async function loader() {
+  await requireAuth()
+  return getHostVans();
+}
+
 
 const HostVans = () => {
-  const [vans, setVans] = useState([]);
   const [trucks, setTrucks] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans))
-      .catch((error) => console.log(error));
-  }, []);
-
-  // console.log(vans);
+  const vans = useLoaderData();
 
   useEffect(() => {
     fetch("/api/host/trucks")
@@ -51,14 +50,10 @@ const HostVans = () => {
     <section>
       <h1 className="host-vans-title">Your listed rigs</h1>
       <div className="host-vans-list">
-        {vans.length > 0 ? (
-          <div>
-            <section>{hostVansEls}</section>
-            <section>{hostTruckEls}</section>
-          </div>
-        ) : (
-          <h2>Loading...</h2>
-        )}
+        <div>
+          <section>{hostVansEls}</section>
+          <section>{hostTruckEls}</section>
+        </div>
       </div>
     </section>
   );

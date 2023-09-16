@@ -4,10 +4,8 @@ import "./loader.css";
 const Loader = () => {
   return (
     <>
-     <div className="loader">
-    <span>#rentArig</span>
-    <span>#rentArig</span>
-</div>
+      <div className="ball"></div>
+      <div className="shadow"></div>
     </>
   );
 };

@@ -9,8 +9,8 @@ function AboutPage() {
         <h1>Don&#39;t settle for less when you can get more. </h1>
         <p>
           Our mission is to enliven your road trips and truck needs with the
-          perfect rigs. Our rigs are re-certified before each trip to
-          ensure your plans can go off without a hitch. (Hitch costs extra 😉)
+          perfect rigs. Our rigs are re-certified before each trip to ensure
+          your plans can go off without a hitch. (Hitch costs extra 😉)
         </p>
         <p>
           Our team is full of rent_a_rig enthusiasts who know firsthand the

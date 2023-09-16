@@ -158,3 +158,28 @@ Protected routes
   Used to stop data fetching of sensitive information. Only allows logged-in users to access their data
 
   If user isn't logged in, stop data fetching by blocking components from rendering and send to the Login page. Since fetching is happening inside the components, if those components never render, the fetching never happens.
+
+<Route 
+  path=""
+  element={}
+  loader = async () => {
+    const rand = Math.random() *2
+    setTimeout(() => {
+      console.log("logging")
+    }, rand)
+    return null
+  } 
+  />
+
+ <Route 
+  path="nested path"
+  element={}
+  loader = async () => {
+    const rand = Math.random() *2
+    setTimeout(() => {
+      console.log("logged")
+    }, rand)
+    return null
+  } 
+  />
+
