@@ -69,6 +69,12 @@ const Header = () => {
           >
             Trucks
           </NavLink>
+          <NavLink
+            to="/blog"
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Blog
+          </NavLink>
 
           {isLoggedIn ? (
             <div onClick={fakeLogOut}>

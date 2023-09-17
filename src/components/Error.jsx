@@ -15,7 +15,7 @@ const Error = () => {
 
   return (
     <div style={errorStyles}>
-      <img style={{ width: "300px" }} src={errorImg} alt="" />
+      <img style={{ width: "250px" }} src={errorImg} alt="" />
       <h1>Error: {error.message}!</h1>
       <pre>
         {error.status} - {error.statusText}

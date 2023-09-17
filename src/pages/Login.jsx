@@ -5,6 +5,7 @@ import {
   useActionData,
   useNavigation,
 } from "react-router-dom";
+
 import { loginUser } from "../api/vanapi";
 
 export function loader({ request }) {
@@ -16,12 +17,15 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const pathname =
+    new URL(request.url).searchParams.get("redirectTo") || "/host";
+  // console.log(pathname);
 
   try {
     const data = await loginUser({ email, password });
     localStorage.setItem("loggedIn", true);
     console.log(data.user);
-    const response = redirect("/host");
+    const response = redirect(pathname);
     response.body = true;
     return response;
   } catch (err) {
