@@ -1,7 +1,7 @@
 import { useRouteError } from "react-router-dom";
 
 import errorImg from "../assets/images/X.png";
-import Loader from "./Loader";
+// import Loader from "./Loader";
 
 const errorStyles = {
   display: "flex",
@@ -20,7 +20,7 @@ const Error = () => {
       <pre>
         {error.status} - {error.statusText}
       </pre>
-      <Loader />;
+      {/* <Loader />; */}
     </div>
   );
 };
