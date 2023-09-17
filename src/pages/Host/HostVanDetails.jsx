@@ -1,11 +1,13 @@
 import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
 import { activeStyle } from "../../components/HostLayout";
 import { getHostVans } from "../../api/vanapi";
+// import { getVan } from "../../api/vanapi";
 import { requireAuth } from "../../utils";
 
 export async function loader({ params, request }) {
   await requireAuth(request);
   return getHostVans(params.id);
+  // return getVan(params.id);
 }
 
 const HostVanDetails = () => {

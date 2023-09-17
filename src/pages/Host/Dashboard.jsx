@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { Link, defer, Await, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../api/vanapi";
 import { requireAuth } from "../../utils";
@@ -54,7 +54,7 @@ const HostDashboard = () => {
       </section>
       <section className="host-dashboard-vans">
         <div className="top">
-          <h2>Your listed vans</h2>
+          <h2>Your listed rigs</h2>
           <Link to="vans">View all</Link>
         </div>
         <Suspense
