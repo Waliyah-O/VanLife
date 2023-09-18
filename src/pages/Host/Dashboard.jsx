@@ -1,12 +1,16 @@
 import { Suspense } from "react";
-import { Link, defer, Await, useLoaderData } from "react-router-dom";
+import { Link, defer, Await, useLoaderData, redirect } from "react-router-dom";
 import { getHostVans } from "../../api/vanapi";
-import { requireAuth } from "../../utils";
 import { BsStarFill } from "react-icons/bs";
 import Loader from "../../components/Loader";
 
 export async function loader({ request }) {
-  await requireAuth(request);
+  const isLoggedIn = localStorage.getItem("loggedIn");
+  if (!isLoggedIn) {
+    const response = redirect("/login?message=You must log in first!");
+    response.body = true;
+    return response;
+  }
   return defer({ vans: getHostVans() });
 }
 

@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import "./sidebar.scss";
-const Sidebar = () => {
+const Sidebar = ({ isLoggedIn, fakeLogOut }) => {
   return (
     <>
       <div className="sidebar">
@@ -24,7 +24,18 @@ const Sidebar = () => {
             <NavLink to="blog">Blog</NavLink>
           </li>
           <li>
-            <Link to="login">Login</Link>
+            <NavLink to="contact">Contact us</NavLink>
+          </li>
+          <li>
+            {isLoggedIn ? (
+              <div>
+                <NavLink onClick={fakeLogOut}>Logout</NavLink>
+              </div>
+            ) : (
+              <NavLink to="login" className="login-link">
+                Login
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>

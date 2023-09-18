@@ -12,12 +12,12 @@
 // } from "firebase/firestore/lite";
 
 // const firebaseConfig = {
-//   apiKey: "AIzaSyBlpBj1M6Yo2UaMkHaSFGJNe1AcmEA4UhM",
-//   authDomain: "rentarig-dab3e.firebaseapp.com",
-//   projectId: "rentarig-dab3e",
-//   storageBucket: "rentarig-dab3e.appspot.com",
-//   messagingSenderId: "586926698268",
-//   appId: "1:586926698268:web:a1c038c6f74e86897b14d9",
+//   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+//   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+//   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+//   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+//   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+//   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 // };
 
 // const app = initializeApp(firebaseConfig);
@@ -65,24 +65,24 @@ export async function getVans(id) {
   const url = id ? `/api/vans/${id}` : "/api/vans";
   const res = await fetch(url);
 
-  // Randomly decide whether to throw an error
-  const shouldThrowError = Math.random() >= 0.5;
+  // // Randomly decide whether to throw an error
+  // const shouldThrowError = Math.random() >= 0.5;
 
-  if (shouldThrowError) {
-    throw {
-      message: "Failed to fetch vans",
-      statusText: res.statusText,
-      status: res.status,
-    };
-  }
-
-  // if (!res.ok) {
+  // if (shouldThrowError) {
   //   throw {
   //     message: "Failed to fetch vans",
   //     statusText: res.statusText,
   //     status: res.status,
   //   };
   // }
+
+  if (!res.ok) {
+    throw {
+      message: "Failed to fetch vans",
+      statusText: res.statusText,
+      status: res.status,
+    };
+  }
   const data = await res.json();
   return data.vans;
 }

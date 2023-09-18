@@ -9,8 +9,6 @@ export async function requireAuth(request) {
   if (!isLoggedIn) {
     const response = redirect(
       `/login?message=You must log in first.&redirectTo=${pathname}`
-      // const response = redirect(
-      //   `/login?message=You must log in first.$redirectTo=${pathname}`
     );
     response.body = true;
     return response;
@@ -18,14 +16,14 @@ export async function requireAuth(request) {
   return null;
 }
 
-export async function fakeLoginUser(creds) {
-  await sleep(1000);
-  if (creds.email === "c@t.com" && creds.password === "p123") {
-    localStorage.setItem("loggedIn", true);
-    return {
-      email: creds.email,
-      token: "123456789abcdef",
-    };
-  }
-  throw new Error("couldn't log the user in");
-}
+// export async function fakeLoginUser(creds) {
+//   await sleep(1000);
+//   if (creds.email === "c@t.com" && creds.password === "p123") {
+//     localStorage.setItem("loggedIn", true);
+//     return {
+//       email: creds.email,
+//       token: "123456789abcdef",
+//     };
+//   }
+//   throw new Error("couldn't log the user in");
+// }

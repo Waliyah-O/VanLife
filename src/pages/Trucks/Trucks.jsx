@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom"; 
+import { Link, useSearchParams } from "react-router-dom";
 
 const Trucks = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,6 +23,14 @@ const Trucks = () => {
         setLoading(false);
       });
   }, []);
+
+  if (!trucks) {
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
+  }
 
   const displayedTrucks = typeFilter
     ? trucks.filter((truck) => truck.type.toLowerCase() === typeFilter)
@@ -58,9 +66,7 @@ const Trucks = () => {
         </div>
       ))
     ) : (
-      <div>
-        <h1>{typeFilter} duty trucks not available yet</h1>
-      </div>
+      <div>{<h1>{typeFilter} duty trucks not available yet</h1>}</div>
     );
 
   return (

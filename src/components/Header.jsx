@@ -11,14 +11,12 @@ const Header = () => {
   const isLoggedIn = localStorage.getItem("loggedIn") === "true";
 
   // function fakeLogOut() {
-  //   setLoggingOut(true)
+  //   setLoggingOut(true);
   //   localStorage.removeItem("loggedIn");
-  //   setTimeout(() => {
-  //     navigate("/login");
-  //   }, 2000);
-  //   // const response = redirect("/login");
-  //   // response.body = true;
-  //   // return response;
+
+  //   const response = redirect("/login");
+  //   response.body = true;
+  //   return response;
   // }
 
   const fakeLogOut = () => {
@@ -75,17 +73,18 @@ const Header = () => {
           >
             Blog
           </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Contact us
+          </NavLink>
 
           {isLoggedIn ? (
             <div onClick={fakeLogOut}>
               <NavLink>
                 <FiLogOut />
               </NavLink>
-              {/* {loggingOut && (
-                <div>
-                  <Loader />
-                </div>
-              )} */}
             </div>
           ) : (
             <NavLink to="login" className="login-link">
@@ -94,7 +93,7 @@ const Header = () => {
             </NavLink>
           )}
         </nav>
-        <Sidebar />
+        <Sidebar fakeLogOut={fakeLogOut} isLoggedIn={isLoggedIn} />
       </header>
     </>
   );

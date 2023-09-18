@@ -14,7 +14,6 @@ import HostLayout from "./components/HostLayout";
 
 // server
 import "./server/server";
-// clear out local storage
 
 // pages
 import AboutPage from "./pages/AboutPage";
@@ -23,8 +22,12 @@ import Blog from "./pages/Blog";
 import Vans, { loader as vansPageLoader } from "./pages/Vans/Vans";
 import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import Trucks from "./pages/Trucks/Trucks";
-import TruckDetail from "./pages/Trucks/TruckDetail";
-import HostDashboard, {loader as hostDashboardLoader} from "./pages/Host/Dashboard";
+import TruckDetail, {
+  loader as truckDetailLoader,
+} from "./pages/Trucks/TruckDetail";
+import HostDashboard, {
+  loader as hostDashboardLoader,
+} from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import HostVans, { loader as hostVansLoader } from "./pages/Host/HostVans";
@@ -42,7 +45,13 @@ import Login, {
 } from "./pages/Login";
 
 import { requireAuth } from "./utils";
-import { loader } from "./pages/Host/Dashboard";
+import ContactUs from "./pages/ContactUs";
+import CheckoutPage, { loader as checkoutLoader } from "./pages/CheckOut";
+import CheckoutTruck, {
+  loader as checkoutTruckLoader,
+} from "./pages/CheckoutTruck";
+import SuccessPage from "./pages/SuccessPage";
+import SignUp from "./pages/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,11 +59,23 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path="about" element={<AboutPage />} />
       <Route path="blog" element={<Blog />} />
+      <Route path="contact" element={<ContactUs />} />
       <Route
         path="login"
         element={<Login />}
         loader={loginLoader}
         action={loginAction}
+      />
+      <Route path="signup" element={<SignUp />} />
+      <Route
+        path="van/:id/checkout"
+        element={<CheckoutPage />}
+        loader={checkoutLoader}
+      />
+      <Route
+        path="truck/:id/checkout"
+        element={<CheckoutTruck />}
+        loader={checkoutTruckLoader}
       />
       <Route
         path="vans"
@@ -73,6 +94,7 @@ const router = createBrowserRouter(
         path="trucks/:id"
         element={<TruckDetail />}
         errorElement={<Error />}
+        loader={truckDetailLoader}
       />
 
       <Route path="host" element={<HostLayout />} errorElement={<Error />}>
@@ -80,6 +102,7 @@ const router = createBrowserRouter(
           index
           element={<HostDashboard />}
           loader={hostDashboardLoader}
+          // loader={async ({ request }) => await requireAuth(request)}
         />
         <Route
           path="income"
@@ -121,6 +144,7 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route path="*" element={<NotFoundPage />} />
+      <Route path="paymentsuccessful" element={<SuccessPage />} />
     </Route>
   )
 );

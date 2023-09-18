@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+import { getTrucks } from "../../api/truckapi";
+
+export function loader({ params }) {
+  return getTrucks(params.id);
+}
 
 const TruckDetail = () => {
   const [truck, setTruck] = useState([]);
   const params = useParams();
-  const location = useLocation()
+  const location = useLocation();
   // console.log(location);
-  
+
   useEffect(() => {
     fetch(`/api/trucks/${params.id}`)
       .then((res) => res.json())
@@ -15,7 +20,11 @@ const TruckDetail = () => {
   }, [params.id]);
 
   if (!truck) {
-    return <><h1>Loading...</h1></>;
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
   }
 
   return (
@@ -32,7 +41,13 @@ const TruckDetail = () => {
             <span>${truck.price}</span>/day
           </p>
           <p>{truck.description}</p>
-          <button className="link-button">Rent this van</button>
+          <button className="link-button">
+            <Link
+              to={{ pathname: `/truck/${truck.id}/checkout`, state: { truck } }}
+            >
+              Rent this truck
+            </Link>
+          </button>
         </div>
       ) : (
         <h2>Loading...</h2>

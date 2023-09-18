@@ -33,7 +33,6 @@ const Vans = () => {
     });
   }
 
-
   function renderVanElements(vans) {
     const displayedVans = typeFilter
       ? vans.filter((van) => van.type.toLowerCase() === typeFilter)

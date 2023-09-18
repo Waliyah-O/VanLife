@@ -11,6 +11,7 @@ export function loader({ params }) {
 const VanDetail = () => {
   const location = useLocation();
   const van = useLoaderData();
+  // console.log(van);
 
   //optional chaining
   const search = location.state?.search || "";
@@ -26,10 +27,19 @@ const VanDetail = () => {
         <i className={`van.imageUrl ${van.type} selected`}></i>
         <h2>{van.name}</h2>
         <p className="van-price">
-          <span>${van.price}</span>/day
+          <span>${van.price * 300}</span>/day
         </p>
         <p>{van.description}</p>
-        <button className="link-button">Rent this van</button>
+        <button className="link-button">
+          <Link
+            to={{
+              pathname: `/van/${van.id}/checkout`,
+              state: { van },
+            }}
+          >
+            Rent this van
+          </Link>
+        </button>
       </div>
     </div>
   );
