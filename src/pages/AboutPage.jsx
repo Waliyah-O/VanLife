@@ -14,7 +14,7 @@ function AboutPage() {
         </p>
         <p>
           Our team is full of rent_a_rig enthusiasts who know firsthand the
-          magic of touring the world on 4 wheels.
+          magic of first class vans and trucks.
         </p>
       </div>
       <div className="about-page-cta">

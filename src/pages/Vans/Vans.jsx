@@ -52,7 +52,7 @@ const Vans = () => {
           <div className="van-info">
             <h3>{van.name}</h3>
             <p>
-              {van.price}
+              ${van.price}
               <span>/day</span>
             </p>
           </div>

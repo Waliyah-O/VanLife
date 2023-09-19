@@ -437,6 +437,7 @@ createServer({
   routes() {
     this.namespace = "api";
     this.passthrough("https://firestore.googleapis.com/**");
+    this.passthrough("https://api.emailjs.com/api/v1.0/email/send-form");
     this.logging = false;
     this.timing = 2000
 

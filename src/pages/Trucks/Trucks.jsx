@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import Loader from '../../components/Loader'
 
 const Trucks = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -57,7 +58,7 @@ const Trucks = () => {
             <div className="van-info">
               <h3>{truck.name}</h3>
               <p>
-                {truck.price}
+                ${truck.price}
                 <span>/day</span>
               </p>
             </div>
@@ -66,7 +67,8 @@ const Trucks = () => {
         </div>
       ))
     ) : (
-      <div>{<h1>{typeFilter} duty trucks not available yet</h1>}</div>
+      // <div>{<h1>{typeFilter} duty trucks not available yet</h1>}</div>
+      <div className="loaderComponent"><Loader/></div>
     );
 
   return (

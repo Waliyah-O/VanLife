@@ -27,7 +27,7 @@ const VanDetail = () => {
         <i className={`van.imageUrl ${van.type} selected`}></i>
         <h2>{van.name}</h2>
         <p className="van-price">
-          <span>${van.price * 300}</span>/day
+          <span>${van.price}</span>/day
         </p>
         <p>{van.description}</p>
         <button className="link-button">

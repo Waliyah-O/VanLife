@@ -4,7 +4,7 @@ import "./styles.css";
 const CardSkeleton = () => {
   return (
     <>
-      <div className="card">
+      <div className="card" style={{marginBottom: '2em'}}>
         <div className="card-header animated-bg" id="header">
           &nbsp;
         </div>
