@@ -28,13 +28,14 @@ const CheckoutTruck = ({ price }) => {
   const truck = useLoaderData();
   const { id } = useParams();
 
+  //switch amount between van.price and truck.price
   // const amount = id === "truck" ? truck.price : van.price || 0;
 
   const amount = truck.price || 0;
 
   //   console.log(amount);
 
-  const publicKey = "pk_test_23f26f6e7e1df8a8e8fbf63d7e8e652399a1ab51";
+  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
   // Function to format a number as Naira currency
   const formatAsNaira = (amount) => {
     return new Intl.NumberFormat("en-NG", {
