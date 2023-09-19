@@ -31,8 +31,8 @@ const CheckoutPage = ({ price }) => {
   const amount = van.price || 0;
 
   const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
-  
-  console.log(import.meta.env.VITE_PAYSTACK_PUBLIC_KEY);
+
+  console.log(publicKey);
   // Function to format a number as Naira currency
   const formatAsNaira = (amount) => {
     return new Intl.NumberFormat("en-NG", {
