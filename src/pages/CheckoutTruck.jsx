@@ -63,44 +63,43 @@ const CheckoutTruck = ({ price }) => {
   };
 
   return (
-    <div className="checkout-container ">
+    <div className="checkout-container">
       {paymentSuccess ? (
         <div className="success-container">
+          {/* <p>Hi {fullName}!</p> */}
           <h2>Payment Successful!</h2>
           <p>An email confirmation has been sent to {email}.</p>
           <p>
-            Please contact Bab for your van and further instructions{" "}
+            Please contact Bab for your truck and further instructions{" "}
             <AiOutlineMail /> b@b.com <MdWifiCalling2 /> 08012345678 for the
             keys to the rig you are renting{" "}
           </p>
-          <Link t="trucks" className="back-button">
+          <Link to="/trucks" className="van-type">
             back to all trucks
           </Link>
         </div>
       ) : (
-        <div>
-          <div
-            style={{
-              display: "flex",
-              width: "100vw",
-              height: "60vh",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <div>
-              <h1>checkout details</h1>
-              <p>
-                you are paying <strong>${truck.price}/day</strong> for:
-              </p>
-              <p>truck no: {truck.id}</p>
-              <img style={{ width: "110px" }} src={truck.imageUrl} alt="" />
-              <p style={{ width: "200px", fontSize: "11px" }}>
-                <strong>Disclaimer:</strong>failure to return rig at the ed of
-                stipulated time will cost you your deposit as well as additional
-                fees.
-              </p>
-            </div>
+        <div
+          style={{
+            display: "flex",
+            width: "100vw",
+            height: "60vh",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <div>
+            <h1>checkout details</h1>
+            <p>
+              you are paying <strong>${truck.price}/day</strong> for:
+            </p>
+            <p>Truck no: {truck.id}</p>
+            <img style={{ width: "110px" }} src={truck.imageUrl} alt="" />
+            <p style={{ width: "200px", fontSize: "11px" }}>
+              <strong>Disclaimer:</strong>failure to return rig at the end of
+              stipulated time will cost you your deposit as well as additional
+              fees.
+            </p>
           </div>
           <div className="checkout-form">
             <div className="">
@@ -129,14 +128,6 @@ const CheckoutTruck = ({ price }) => {
                     type="text"
                     value={phoneNumber}
                     onInput={(e) => setPhoneNumber(e.target.value)}
-                  />
-                </div>
-                <div className="checkout-info">
-                  <label>Address:</label>
-                  <input
-                    value={address}
-                    onInput={(e) => setAddress(e.target.value)}
-                    className="address"
                   />
                 </div>
               </div>
