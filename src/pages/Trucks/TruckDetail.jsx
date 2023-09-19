@@ -12,6 +12,9 @@ const TruckDetail = () => {
   const location = useLocation();
   // console.log(location);
 
+  const search = location.state?.search || "";
+  const type = location.state?.type || "all";
+
   useEffect(() => {
     fetch(`/api/trucks/${params.id}`)
       .then((res) => res.json())
@@ -29,8 +32,8 @@ const TruckDetail = () => {
 
   return (
     <div className="van-detail-container">
-      <Link to=".." relative="path" className="back-button">
-        <span> &larr; Back to all trucks</span>
+      <Link to={`..${search}`} relative="path" className="back-button">
+        <span> &larr; Back to {type} trucks</span>
       </Link>
       {truck ? (
         <div className="van-detail">

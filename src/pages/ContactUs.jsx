@@ -1,14 +1,16 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./pages.css";
+import { useNavigation } from "react-router-dom";
 
 export const ContactUs = () => {
   const [error, setError] = useState("");
   const form = useRef();
+  const navigation = useNavigation();
+  console.log(navigation);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_msyk3zb",
@@ -64,7 +66,7 @@ export const ContactUs = () => {
           <span>email</span>
         </label>
 
-        <label>
+        {/* <label>
           <input
             required=""
             type="tel"
@@ -73,7 +75,7 @@ export const ContactUs = () => {
             name="message"
           />
           <span>contact number</span>
-        </label>
+        </label> */}
         <label>
           <textarea
             required=""
@@ -87,7 +89,9 @@ export const ContactUs = () => {
 
         <button className="fancy" type="submit" value="send">
           <span className="top-key"></span>
-          <span className="text">submit</span>
+          <span className="text" disabled={navigation.state === "submitting"}>
+            {navigation.state === "submitting" ? "submitting" : "submit"}
+          </span>
           <span className="bottom-key-1"></span>
           <span className="bottom-key-2"></span>
         </button>

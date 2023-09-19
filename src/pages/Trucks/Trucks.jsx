@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import Loader from '../../components/Loader'
+import Loader from "../../components/Loader";
 
 const Trucks = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,14 +25,6 @@ const Trucks = () => {
       });
   }, []);
 
-  if (!trucks) {
-    return (
-      <>
-        <h1>Loading...</h1>
-      </>
-    );
-  }
-
   const displayedTrucks = typeFilter
     ? trucks.filter((truck) => truck.type.toLowerCase() === typeFilter)
     : trucks;
@@ -53,7 +45,13 @@ const Trucks = () => {
       displayedTrucks.map((truck) => (
         <div key={truck.id} className="van-tile">
           {/* save search filters */}
-          <Link to={truck.id} state={{ search: `${searchParams.toString()}` }}>
+          <Link
+            to={truck.id}
+            state={{
+              search: `?${searchParams.toString()}`,
+              type: typeFilter,
+            }}
+          >
             <img className="van-image " src={truck.imageUrl} alt="" />
             <div className="van-info">
               <h3>{truck.name}</h3>
@@ -68,7 +66,9 @@ const Trucks = () => {
       ))
     ) : (
       // <div>{<h1>{typeFilter} duty trucks not available yet</h1>}</div>
-      <div className="loaderComponent"><Loader/></div>
+      <div className="loaderComponent">
+        <Loader /> <h2>loading trucks</h2>
+      </div>
     );
 
   return (

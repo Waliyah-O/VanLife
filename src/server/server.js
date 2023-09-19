@@ -347,7 +347,7 @@ createServer({
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck14,
-      type: "medium",
+      type: "heavy",
       hostId: "456",
     });
     server.create("truck", {
@@ -357,7 +357,7 @@ createServer({
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck15,
-      type: "medium",
+      type: "heavy",
       hostId: "123",
     });
     server.create("truck", {

@@ -31,7 +31,7 @@ export async function action({ request }) {
   } catch (err) {
     return err.message;
   }
-
+  
   // save user data.user in local storage
   // save token in a cookie
 }
@@ -49,7 +49,7 @@ const Login = () => {
       {errorMessage && <h4 className="login-error">{errorMessage}</h4>}
 
       <Form method="post" className="login-form" replace>
-        <input name="email" placeholder=" Email address" type="email" />
+        <input name="email" placeholder="Email address" type="email" />
         <input name="password" placeholder="Password" type="password" />
         <button disabled={navigation.state === "submitting"}>
           {navigation.state === "submitting" ? "Logging in..." : "Log in"}
