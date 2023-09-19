@@ -24,13 +24,15 @@ const CheckoutPage = ({ price }) => {
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [rentDuration, setRentDuration] = useState(1);
   const van = useLoaderData();
-  // console.log(truck);
   const { id } = useParams();
 
   const amount = van.price || 0;
 
-  const publicKey = "pk_test_23f26f6e7e1df8a8e8fbf63d7e8e652399a1ab51";
+  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+  
+  console.log(import.meta.env.VITE_PAYSTACK_PUBLIC_KEY);
   // Function to format a number as Naira currency
   const formatAsNaira = (amount) => {
     return new Intl.NumberFormat("en-NG", {
@@ -69,7 +71,7 @@ const CheckoutPage = ({ price }) => {
           <p>
             Please contact Bab for your van and further instructions{" "}
             <AiOutlineMail /> b@b.com <MdWifiCalling2 /> 08012345678 for the
-            keys to the rig you are renting{" "}
+            keys to the rig you are renting and further instructions
           </p>
           <Link to="/vans" className="van-type">
             back to all vans
@@ -89,6 +91,13 @@ const CheckoutPage = ({ price }) => {
             <h1>checkout details</h1>
             <p>
               you are paying <strong>${van.price}/day</strong> for:
+              <input
+                type="text"
+                value={rentDuration}
+                onInput={(e) => setRentDuration(e.target.value)}
+                style={{ width: "30px" }}
+              />
+              days
             </p>
             <p>Van no: {van.id}</p>
             <img style={{ width: "110px" }} src={van.imageUrl} alt="" />
@@ -130,8 +139,11 @@ const CheckoutPage = ({ price }) => {
               </div>
 
               <div className="checkout-amount">
-                <h4>Amount in USD: ${amount}/day</h4>
-                <h4>Amount in Naira: {formatAsNaira(amount * 300)}/day</h4>
+                <h4>Amount in USD: ${amount * rentDuration}/day</h4>
+                <h4>
+                  Amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}
+                  /day
+                </h4>
                 <p style={{ fontSize: "10px" }}>
                   *you will be charged in naira!
                 </p>

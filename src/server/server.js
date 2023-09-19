@@ -214,7 +214,7 @@ createServer({
     server.create("truck", {
       id: "2",
       name: "Beach Bum",
-      price: 80,
+      price: 180,
       description:
         "Beach Bum is a truck inspired by surfers and travelers. It was created to be a portable home away from home, but with some cool features in it you won't find in an ordinary camper.",
       imageUrl: truck2,
@@ -235,7 +235,7 @@ createServer({
     server.create("truck", {
       id: "4",
       name: "Morimoto Lighting",
-      price: 65,
+      price: 165,
       description:
         "Morimoto Lighting is the perfect truck to travel in and experience. With a ceiling height of 2.1m, you can stand up in this truck and there is great head room. The floor is a beautiful glass-reinforced plastic (GRP) which is easy to clean and very hard wearing. A large rear window and large side windows make it really light inside and keep it well ventilated.",
       imageUrl: truck4,
@@ -255,7 +255,7 @@ createServer({
     server.create("truck", {
       id: "6",
       name: "Green Wonder",
-      price: 70,
+      price: 170,
       description:
         "With this truck, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.",
       imageUrl: truck6,
@@ -266,7 +266,7 @@ createServer({
     server.create("truck", {
       id: "7",
       name: "Perfection",
-      price: 170,
+      price: 180,
       description:
         "This truck elevates your travel experience to new heights. The Red Thunder represents an environmentally conscious vehicle, ideal for individuals seeking a fashionable and eco-friendly means of transportation capable of traversing any terrain.",
       imageUrl: truck7,
@@ -287,7 +287,7 @@ createServer({
     server.create("truck", {
       id: "9",
       name: "Ultralite TB50",
-      price: 160,
+      price: 140,
       description:
         "Ultralite TB50 is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck9,
@@ -298,7 +298,7 @@ createServer({
     server.create("truck", {
       id: "10",
       name: "Mitsubishi Fuso",
-      price: 160,
+      price: 165,
       description:
         "Mitsubishi Fuso is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck10,
@@ -310,7 +310,7 @@ createServer({
     server.create("truck", {
       id: "11",
       name: "Sleek Orange",
-      price: 180,
+      price: 182,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck11,
@@ -321,7 +321,7 @@ createServer({
     server.create("truck", {
       id: "12",
       name: "Sleek Orange",
-      price: 180,
+      price: 230,
       description:
         "The Green Goblin is a truck designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!",
       imageUrl: truck12,
