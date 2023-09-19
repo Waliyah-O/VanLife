@@ -69,7 +69,7 @@ const CheckoutPage = ({ price }) => {
           <h2>Payment Successful!</h2>
           <p>An email confirmation has been sent to {email}.</p>
           <p>
-            Please contact Bab for your van and further instructions{" "}
+            Please contact Bab for your van and further instructions
             <AiOutlineMail /> b@b.com <MdWifiCalling2 /> 08012345678 for the
             keys to the rig you are renting and further instructions
           </p>
@@ -90,7 +90,7 @@ const CheckoutPage = ({ price }) => {
           <div>
             <h1>checkout details</h1>
             <p>
-              you are paying <strong>${van.price}/day</strong> for:
+              you are paying <strong>${van.price} /day</strong> for:
               <input
                 type="text"
                 value={rentDuration}

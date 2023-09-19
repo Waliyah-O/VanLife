@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { PaystackButton } from "react-paystack";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdWifiCalling2 } from "react-icons/md";
+import { Suspense } from "react";
 import {
   useNavigate,
   useLocation,
@@ -10,6 +11,7 @@ import {
   Link,
 } from "react-router-dom";
 import { getTrucks } from "../api/truckapi";
+import Loader from "../components/Loader";
 
 export function loader({ params }) {
   return getTrucks(params.id);
@@ -81,91 +83,100 @@ const CheckoutTruck = ({ price }) => {
           </Link>
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            width: "100vw",
-            height: "60vh",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
+        <Suspense
+          fallback={
+            <h2>
+              <Loader /> <h1>Loading...</h1>
+            </h2>
+          }
         >
-          <div>
-            <h1>checkout details</h1>
-            <p>
-              you are paying <strong>${truck.price}/day</strong> for:
-              <input
-                type="text"
-                value={rentDuration}
-                onInput={(e) => setRentDuration(e.target.value)}
-                style={{ width: "30px" }}
-              />{" "}
-              days
-            </p>
-            <p>Truck no: {truck.id}</p>
-            <img style={{ width: "110px" }} src={truck.imageUrl} alt="" />
-            <p style={{ width: "200px", fontSize: "11px" }}>
-              <strong>Disclaimer:</strong>failure to return rig at the end of
-              stipulated time will cost you your deposit as well as additional
-              fees.
-            </p>
-          </div>
-          <div className="checkout-form">
-            <div className="">
+          <div
+            style={{
+              display: "flex",
+              width: "100vw",
+              height: "60vh",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <div>
+              <h1>checkout details</h1>
+              <p>
+                you are paying <strong>${truck.price}/day</strong> for:
+                <input
+                  type="text"
+                  value={rentDuration}
+                  onInput={(e) => setRentDuration(e.target.value)}
+                  style={{ width: "30px" }}
+                />{" "}
+                days
+              </p>
+              <p>Truck no: {truck.id}</p>
+              <img style={{ width: "110px" }} src={truck.imageUrl} alt="" />
+              <p style={{ width: "200px", fontSize: "11px" }}>
+                <strong>Disclaimer:</strong>failure to return rig at the end of
+                stipulated time will cost you your deposit as well as additional
+                fees.
+              </p>
+            </div>
+            <div className="checkout-form">
               <div className="">
-                <div className="checkout-info">
-                  <label>Full Name:</label>
-                  <input
-                    type="text"
-                    value={fullName}
-                    onInput={(e) => setFullName(e.target.value)}
-                  />
+                <div className="">
+                  <div className="checkout-info">
+                    <label>Full Name:</label>
+                    <input
+                      type="text"
+                      value={fullName}
+                      onInput={(e) => setFullName(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="checkout-info">
+                    <label>Email Address:</label>
+                    <input
+                      type="text"
+                      value={email}
+                      onInput={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="checkout-info">
+                    <label>Phone Number:</label>
+                    <input
+                      type="text"
+                      value={phoneNumber}
+                      onInput={(e) => setPhoneNumber(e.target.value)}
+                    />
+                  </div>
                 </div>
 
-                <div className="checkout-info">
-                  <label>Email Address:</label>
-                  <input
-                    type="text"
-                    value={email}
-                    onInput={(e) => setEmail(e.target.value)}
-                  />
+                <div className="checkout-amount">
+                  <h4>Amount in USD: ${amount * rentDuration}/day</h4>
+                  <h4>
+                    Amount in Naira:{" "}
+                    {formatAsNaira(amount * 300 * rentDuration)}
+                    /day
+                  </h4>
+                  <p style={{ fontSize: "10px", marginBottom: "1em" }}>
+                    *you will be charged in naira!
+                  </p>
                 </div>
 
-                <div className="checkout-info">
-                  <label>Phone Number:</label>
-                  <input
-                    type="text"
-                    value={phoneNumber}
-                    onInput={(e) => setPhoneNumber(e.target.value)}
+                <div className="paystackBtnDiv">
+                  <PaystackButton
+                    text="Pay with Paystack"
+                    className="paystackBtn"
+                    email={email}
+                    amount={amount * 100 * 300} // Convert to kobo
+                    publicKey={publicKey}
+                    onSuccess={onSuccess}
+                    onClose={onClose}
                   />
                 </div>
-              </div>
-
-              <div className="checkout-amount">
-                <h4>Amount in USD: ${amount * rentDuration}/day</h4>
-                <h4>
-                  Amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}
-                  /day
-                </h4>
-                <p style={{ fontSize: "10px", marginBottom: "1em" }}>
-                  *you will be charged in naira!
-                </p>
-              </div>
-
-              <div className="paystackBtnDiv">
-                <PaystackButton
-                  text="Pay with Paystack"
-                  className="paystackBtn"
-                  email={email}
-                  amount={amount * 100 * 300} // Convert to kobo
-                  publicKey={publicKey}
-                  onSuccess={onSuccess}
-                  onClose={onClose}
-                />
               </div>
             </div>
           </div>
-        </div>
+        </Suspense>
       )}
     </div>
   );
