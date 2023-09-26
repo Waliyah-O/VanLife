@@ -52,6 +52,8 @@ import CheckoutTruck, {
 } from "./pages/CheckoutTruck";
 import SuccessPage from "./pages/SuccessPage";
 import SignUp from "./pages/Signup";
+import CreateVanForm from "./components/CreateVanForm";
+import CreateTruckForm from "./components/CreateTruckForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -114,6 +116,9 @@ const router = createBrowserRouter(
           element={<Reviews />}
           loader={async ({ request }) => await requireAuth(request)}
         />
+
+        <Route path="createVan" element={<CreateVanForm />} />
+        <Route path="createTruck" element={<CreateTruckForm />} />
         <Route
           path="vans"
           element={<HostVans />}

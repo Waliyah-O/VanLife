@@ -1,18 +1,59 @@
 import { createServer, Model, Response } from "miragejs";
 import {
-  van1, van2, van3, van4, van5, 
-  van6, van7, van8, van9, van10, 
-  van11, van12, van13, van14, van15, 
-  van16, van17, van18, van19, van20, 
-  van21, van22, van23, van24, van25, 
-  van26, van27, van28, van29, van30,van31,
+  van1,
+  van2,
+  van3,
+  van4,
+  van5,
+  van6,
+  van7,
+  van8,
+  van9,
+  van10,
+  van11,
+  van12,
+  van13,
+  van14,
+  van15,
+  van16,
+  van17,
+  van18,
+  van19,
+  van20,
+  van21,
+  van22,
+  van23,
+  van24,
+  van25,
+  van26,
+  van27,
+  van28,
+  van29,
+  van30,
+  van31,
 } from "../assets";
 
 import {
-  truck1, truck2, truck3, truck4, truck5, 
-	truck6, truck7, truck8, truck9, truck10,
-	truck11, truck12, truck13, truck14, truck15,
-	truck16, truck17, truck18, truck19, truck20,
+  truck1,
+  truck2,
+  truck3,
+  truck4,
+  truck5,
+  truck6,
+  truck7,
+  truck8,
+  truck9,
+  truck10,
+  truck11,
+  truck12,
+  truck13,
+  truck14,
+  truck15,
+  truck16,
+  truck17,
+  truck18,
+  truck19,
+  truck20,
 } from "../assets/index";
 
 createServer({
@@ -432,14 +473,13 @@ createServer({
       name: "Tom",
     });
   },
-  
 
   routes() {
     this.namespace = "api";
     this.passthrough("https://firestore.googleapis.com/**");
     this.passthrough("https://api.emailjs.com/api/v1.0/email/send-form");
     this.logging = false;
-    this.timing = 2000
+    this.timing = 2000;
 
     this.get("/vans", (schema, request) => {
       // return new Response(400, {}, {error: "Error fetching data"})
@@ -481,6 +521,21 @@ createServer({
       // Hard-coding the hostId for now
       const id = request.params.id;
       return schema.trucks.findBy({ id, hostId: "123" });
+    });
+
+    this.post("/vans", (schema, request) => {
+      const attrs = JSON.parse(request.requestBody);
+      const newVanId = new Date().getTime();
+      attrs.id = newVanId;
+      return schema.vans.create(attrs);
+    });
+
+    // Define a POST route for creating a new truck
+    this.post("/trucks", (schema, request) => {
+      const attrs = JSON.parse(request.requestBody);
+      const newTruckId = new Date().getTime();
+      attrs.id = newTruckId;
+      return schema.trucks.create(attrs);
     });
 
     this.post(

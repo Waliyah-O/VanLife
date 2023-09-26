@@ -30,7 +30,7 @@ const CheckoutPage = ({ price }) => {
 
   const amount = van.price || 0;
 
-  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+  const publicKey = "pk_test_23f26f6e7e1df8a8e8fbf63d7e8e652399a1ab51"
   // Function to format a number as Naira currency
   const formatAsNaira = (amount) => {
     return new Intl.NumberFormat("en-NG", {
@@ -100,7 +100,7 @@ const CheckoutPage = ({ price }) => {
               />
               days
             </p>
-            <p>Van no: {van.id}</p>
+            <p>Van ID: {van.id}</p>
             <img style={{ width: "110px" }} src={van.imageUrl} alt="" />
             <p style={{ width: "200px", fontSize: "11px" }}>
               <strong>Disclaimer:</strong>failure to return rig at the end of
@@ -140,10 +140,9 @@ const CheckoutPage = ({ price }) => {
               </div>
 
               <div className="checkout-amount">
-                <h4>Amount in USD: ${amount * rentDuration}/day</h4>
+                <h4>Total amount in USD: ${amount * rentDuration}.00</h4>
                 <h4>
-                  Amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}
-                  /day
+                  Total amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}.00
                 </h4>
                 <p style={{ fontSize: "10px" }}>
                   *you will be charged in naira!

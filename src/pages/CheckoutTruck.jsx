@@ -107,7 +107,7 @@ const CheckoutTruck = ({ price }) => {
               />{" "}
               days
             </p>
-            <p>Truck no: {truck.id}</p>
+            <p>Truck ID: {truck.id}</p>
             <img style={{ width: "110px" }} src={truck.imageUrl} alt="" />
             <p style={{ width: "200px", fontSize: "11px" }}>
               <strong>Disclaimer:</strong>failure to return rig at the end of
@@ -147,10 +147,10 @@ const CheckoutTruck = ({ price }) => {
               </div>
 
               <div className="checkout-amount">
-                <h4>Amount in USD: ${amount * rentDuration}/day</h4>
+                <h4>Total amount in USD: ${amount * rentDuration}.00</h4>
                 <h4>
-                  Amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}
-                  /day
+                  Total amount in Naira: {formatAsNaira(amount * 300 * rentDuration)}
+                  .00
                 </h4>
                 <p style={{ fontSize: "10px", marginBottom: "1em" }}>
                   *you will be charged in naira!

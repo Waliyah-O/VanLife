@@ -8,6 +8,7 @@ export function loader({ params }) {
   // return getVan(params.id);
 }
 
+
 const VanDetail = () => {
   const location = useLocation();
   const van = useLoaderData();
@@ -44,5 +45,6 @@ const VanDetail = () => {
     </div>
   );
 };
+
 
 export default VanDetail;

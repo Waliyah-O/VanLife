@@ -9,6 +9,8 @@ import {
 import { getVans } from "../../api/vanapi";
 import Loader from "../../components/Loader";
 
+
+// load the page immediately without waiting for the data
 export function loader() {
   return defer({ vans: getVans() });
   // return getVans();
