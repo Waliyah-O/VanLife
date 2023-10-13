@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import {
   Link,
   useSearchParams,
@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import { getVans } from "../../api/vanapi";
 import Loader from "../../components/Loader";
-
 
 // load the page immediately without waiting for the data
 export function loader() {

@@ -23,7 +23,8 @@ const CreateTruckForm = () => {
     axios
       .post("/api/trucks", formData)
       .then((response) => {
-        console.log("new truck created", response.data);
+        // console.log("new truck created", response.data);
+        alert(`Status: truck ${response.statusText}` )
         //clear form daa
         setFormData({
           // id: 0,
@@ -39,7 +40,7 @@ const CreateTruckForm = () => {
   };
   return (
     <>
-      <h3>create new truck</h3>
+      <h3>Add new truck</h3>
       <form action="" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Name:</label>

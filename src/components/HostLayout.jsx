@@ -1,14 +1,12 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export const activeStyle = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "#161616",
-  };
-
+  fontWeight: "bold",
+  textDecoration: "underline",
+  color: "#161616",
+};
 
 const HostLayout = () => {
-
   return (
     <>
       <nav className="host-nav">
@@ -29,7 +27,7 @@ const HostLayout = () => {
           to="vans"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
-          Vans
+          Rigs
         </NavLink>
         <NavLink
           to="reviews"
@@ -37,17 +35,14 @@ const HostLayout = () => {
         >
           Reviews
         </NavLink>
-        <NavLink
-          to="createVan"
-          style={({ isActive }) => (isActive ? activeStyle : null)}
-        >
-          Add Van
-        </NavLink>
-        <NavLink
-          to="createTruck"
-          style={({ isActive }) => (isActive ? activeStyle : null)}
-        >
-          Add Truck
+        <NavLink style={({ isActive }) => (isActive ? activeStyle : null)}>
+          <div className="dropdown">
+            <button className="dropbtn">Add Rig</button>
+            <div className="dropdown-content">
+              <Link to="createVan">Van</Link>
+              <Link to="createTruck">Truck</Link>
+            </div>
+          </div>
         </NavLink>
       </nav>
       <Outlet />

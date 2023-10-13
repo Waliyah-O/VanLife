@@ -99,7 +99,7 @@ const CreateVanForm = () => {
 
   return (
     <>
-      <h3>create new van</h3>
+      <h3>Add new van</h3>
       <form action="" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Name:</label>
@@ -175,7 +175,7 @@ const CreateVanForm = () => {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit"><Link to=".." relative="path">submit</Link></button>
+        <button type="submit">submit</button>
       </form>
     </>
   );

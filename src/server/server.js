@@ -1,35 +1,18 @@
 import { createServer, Model, Response } from "miragejs";
 import {
-  van1,
   van2,
   van3,
   van4,
   van5,
   van6,
   van7,
-  van8,
-  van9,
-  van10,
-  van11,
-  van12,
-  van13,
-  van14,
-  van15,
-  van16,
-  van17,
-  van18,
-  van19,
-  van20,
-  van21,
   van22,
-  van23,
   van24,
   van25,
   van26,
   van27,
   van28,
   van29,
-  van30,
   van31,
 } from "../assets";
 
@@ -493,13 +476,13 @@ createServer({
 
     this.get("/host/vans", (schema, request) => {
       // Hard-code the hostId for now
-      return schema.vans.where({ hostId: "123" });
+      return schema.vans.where({ hostId: "456" });
     });
 
     this.get("/host/vans/:id", (schema, request) => {
       // Hard-code the hostId for now
       const id = request.params.id;
-      return schema.vans.findBy({ id, hostId: "123" });
+      return schema.vans.findBy({ id, hostId: "456" });
     });
 
     this.get("/trucks", (schema, request) => {
@@ -514,13 +497,13 @@ createServer({
 
     this.get("/host/trucks", (schema, request) => {
       // Hard-coding the hostId for now
-      return schema.trucks.where({ hostId: "123" });
+      return schema.trucks.where({ hostId: "456" });
     });
 
     this.get("/host/trucks/:id", (schema, request) => {
       // Hard-coding the hostId for now
       const id = request.params.id;
-      return schema.trucks.findBy({ id, hostId: "123" });
+      return schema.trucks.findBy({ id, hostId: "456" });
     });
 
     this.post("/vans", (schema, request) => {

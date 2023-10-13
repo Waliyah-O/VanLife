@@ -1,18 +1,20 @@
 import { Suspense, useEffect } from "react";
 import { useState } from "react";
 import { Link, useLoaderData, defer, Await } from "react-router-dom";
-import { getHostVans } from "../../api/vanapi";
+import { getHostVans, checkHostIdExists } from "../../api/vanapi";
+import { getHostTrucks } from "../../api/truckapi";
 import { requireAuth } from "../../utils";
 import Loader from "../../components/Loader";
 
 export async function loader({ request }) {
   await requireAuth(request);
-  return defer({ vans: getHostVans() });
+  return defer({ vans: getHostVans(), trucks: getHostTrucks() });
 }
 
 const HostVans = () => {
   const [trucks, setTrucks] = useState([]);
   const dataPromise = useLoaderData();
+  // const trucks = useLoaderData()
 
   function renderVanElements(vans) {
     const hostVansEls = vans.map((van) => (
@@ -44,6 +46,26 @@ const HostVans = () => {
       .catch((error) => console.log(error));
   }, []);
   // console.log(trucks);
+
+  useEffect(() => {
+    // Get the hostId from user input or any other source
+    const hostId = "123"; // Replace with your logic to get hostId
+
+    const fetchData = async () => {
+      // Check if the hostId exists in Firebase
+      const hostExists = await checkHostIdExists(hostId);
+
+      if (hostExists) {
+        // If host exists, get the host's vans
+        const hostVans = await getHostVans(hostId);
+        console.log("Host's Vans:", hostVans);
+      } else {
+        console.log("Host with ID", hostId, "not found in Firebase.");
+      }
+    };
+
+    fetchData(); // Fetch data when the component mounts or when hostId changes
+  }, []);
 
   const hostTruckEls = trucks.map((truck) => (
     <Link to={truck.id} key={truck.id} className="host-van-link-wrapper">

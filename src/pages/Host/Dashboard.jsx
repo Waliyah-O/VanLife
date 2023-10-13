@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Link, defer, Await, useLoaderData, redirect } from "react-router-dom";
-import { getHostVans, getVans } from "../../api/vanapi";
+import { getHostVans } from "../../api/vanapi";
 import { BsStarFill } from "react-icons/bs";
 import Loader from "../../components/Loader";
 
@@ -14,9 +14,8 @@ export async function loader({ request }) {
   return defer({ vans: getHostVans() });
 }
 
-const HostDashboard = (hostId) => {
+const HostDashboard = () => {
   const dataPromise = useLoaderData();
-  console.log(getVans(hostId));
 
   function renderVanElements(vans) {
     const hostVansEls = vans.map((van) => (

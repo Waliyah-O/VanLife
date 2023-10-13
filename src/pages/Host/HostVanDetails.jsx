@@ -1,6 +1,7 @@
 import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
 import { activeStyle } from "../../components/HostLayout";
 import { getHostVans } from "../../api/vanapi";
+import { getHostTrucks } from "../../api/truckapi";
 // import { getVan } from "../../api/vanapi";
 import { requireAuth } from "../../utils";
 
