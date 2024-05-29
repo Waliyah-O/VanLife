@@ -51,9 +51,11 @@ import CheckoutTruck, {
   loader as checkoutTruckLoader,
 } from "./pages/CheckoutTruck";
 import SuccessPage from "./pages/SuccessPage";
+import HandleAPiCallsPage from "./pages/HandleAPiCallsPage.jsx";
 import SignUp from "./pages/Signup";
 import CreateVanForm from "./components/CreateVanForm";
 import CreateTruckForm from "./components/CreateTruckForm";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -150,9 +152,12 @@ const router = createBrowserRouter(
       </Route>
       <Route path="*" element={<NotFoundPage />} />
       <Route path="paymentsuccessful" element={<SuccessPage />} />
+      <Route path="handleapi" element={<HandleAPiCallsPage />} />
     </Route>
   )
 );
+
+
 
 function App() {
   return (
@@ -164,30 +169,28 @@ function App() {
 
 export default App;
 
-{
-  /* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="vans" element={<Vans />} />
-            <Route path="vans/:id" element={<VanDetail />} />
-            <Route path="trucks" element={<Trucks />} />
-            <Route path="trucks/:id" element={<TruckDetail />} />
+{/* <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="vans" element={<Vans />} />
+      <Route path="vans/:id" element={<VanDetail />} />
+      <Route path="trucks" element={<Trucks />} />
+      <Route path="trucks/:id" element={<TruckDetail />} />
 
-            <Route path="host" element={<HostLayout />}>
-              <Route index element={<HostDashboard />} />
-              <Route path="income" element={<Income />} />
-              <Route path="reviews" element={<Reviews />} />
-              <Route path="vans" element={<HostVans />} />
-              <Route path="vans/:id" element={<HostVanDetails />}>
-                <Route index element={<HostVanInfo />} />
-                <Route path="pricing" element={<HostVanPricing />} />
-                <Route path="photos" element={<HostVanPhotos />} />
-              </Route>
-            </Route>
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter> */
-}
+      <Route path="host" element={<HostLayout />}>
+        <Route index element={<HostDashboard />} />
+        <Route path="income" element={<Income />} />
+        <Route path="reviews" element={<Reviews />} />
+        <Route path="vans" element={<HostVans />} />
+        <Route path="vans/:id" element={<HostVanDetails />}>
+          <Route index element={<HostVanInfo />} />
+          <Route path="pricing" element={<HostVanPricing />} />
+          <Route path="photos" element={<HostVanPhotos />} />
+        </Route>
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Route>
+  </Routes>
+</BrowserRouter>; */}

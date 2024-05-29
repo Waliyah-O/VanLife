@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import "./sidebar.scss";
 const Sidebar = ({ isLoggedIn, fakeLogOut }) => {
+  
   return (
     <>
       <div className="sidebar">
